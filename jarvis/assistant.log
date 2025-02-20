@@ -1,0 +1,201 @@
+2025-02-19 14:52:59,129 - comtypes.client._code_cache - INFO - Imported existing <module 'comtypes.gen' from 'C:\\Users\\sayye\\Desktop\\project\\jarvis\\jarvis\\env\\Lib\\site-packages\\comtypes\\gen\\__init__.py'>
+2025-02-19 14:52:59,130 - comtypes.client._code_cache - INFO - Using writeable comtypes cache directory: 'C:\Users\sayye\Desktop\project\jarvis\jarvis\env\Lib\site-packages\comtypes\gen'
+2025-02-19 14:52:59,508 - comtypes.client._code_cache - INFO - Imported existing <module 'comtypes.gen' from 'C:\\Users\\sayye\\Desktop\\project\\jarvis\\jarvis\\env\\Lib\\site-packages\\comtypes\\gen\\__init__.py'>
+2025-02-19 14:52:59,536 - comtypes.client._code_cache - INFO - Using writeable comtypes cache directory: 'C:\Users\sayye\Desktop\project\jarvis\jarvis\env\Lib\site-packages\comtypes\gen'
+2025-02-19 14:53:08,714 - django.request - ERROR - Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Users\sayye\Desktop\project\jarvis\jarvis\env\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\sayye\Desktop\project\jarvis\jarvis\env\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\sayye\Desktop\project\jarvis\jarvis\env\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\sayye\Desktop\project\jarvis\jarvis\assistant\views.py", line 232, in process_command
+    return render(request, 'assistant.html')
+  File "C:\Users\sayye\Desktop\project\jarvis\jarvis\env\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\sayye\Desktop\project\jarvis\jarvis\env\Lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+  File "C:\Users\sayye\Desktop\project\jarvis\jarvis\env\Lib\site-packages\django\template\loader.py", line 19, in get_template
+    raise TemplateDoesNotExist(template_name, chain=chain)
+django.template.exceptions.TemplateDoesNotExist: assistant.html
+2025-02-19 14:54:13,713 - django.request - ERROR - Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Users\sayye\Desktop\project\jarvis\jarvis\env\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\sayye\Desktop\project\jarvis\jarvis\env\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\sayye\Desktop\project\jarvis\jarvis\env\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\sayye\Desktop\project\jarvis\jarvis\assistant\views.py", line 232, in process_command
+    return render(request, 'assistant.html')
+  File "C:\Users\sayye\Desktop\project\jarvis\jarvis\env\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\sayye\Desktop\project\jarvis\jarvis\env\Lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+  File "C:\Users\sayye\Desktop\project\jarvis\jarvis\env\Lib\site-packages\django\template\loader.py", line 19, in get_template
+    raise TemplateDoesNotExist(template_name, chain=chain)
+django.template.exceptions.TemplateDoesNotExist: assistant.html
+2025-02-19 14:54:16,107 - django.request - ERROR - Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Users\sayye\Desktop\project\jarvis\jarvis\env\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\sayye\Desktop\project\jarvis\jarvis\env\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\sayye\Desktop\project\jarvis\jarvis\env\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\sayye\Desktop\project\jarvis\jarvis\assistant\views.py", line 232, in process_command
+    return render(request, 'assistant.html')
+  File "C:\Users\sayye\Desktop\project\jarvis\jarvis\env\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\sayye\Desktop\project\jarvis\jarvis\env\Lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+  File "C:\Users\sayye\Desktop\project\jarvis\jarvis\env\Lib\site-packages\django\template\loader.py", line 19, in get_template
+    raise TemplateDoesNotExist(template_name, chain=chain)
+django.template.exceptions.TemplateDoesNotExist: assistant.html
+2025-02-19 14:54:21,665 - django.request - ERROR - Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Users\sayye\Desktop\project\jarvis\jarvis\env\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\sayye\Desktop\project\jarvis\jarvis\env\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\sayye\Desktop\project\jarvis\jarvis\env\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\sayye\Desktop\project\jarvis\jarvis\assistant\views.py", line 232, in process_command
+    return render(request, 'assistant.html')
+  File "C:\Users\sayye\Desktop\project\jarvis\jarvis\env\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\sayye\Desktop\project\jarvis\jarvis\env\Lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+  File "C:\Users\sayye\Desktop\project\jarvis\jarvis\env\Lib\site-packages\django\template\loader.py", line 19, in get_template
+    raise TemplateDoesNotExist(template_name, chain=chain)
+django.template.exceptions.TemplateDoesNotExist: assistant.html
+2025-02-19 14:55:29,490 - comtypes.client._code_cache - INFO - Imported existing <module 'comtypes.gen' from 'C:\\Users\\sayye\\Desktop\\project\\jarvis\\jarvis\\env\\Lib\\site-packages\\comtypes\\gen\\__init__.py'>
+2025-02-19 14:55:29,491 - comtypes.client._code_cache - INFO - Using writeable comtypes cache directory: 'C:\Users\sayye\Desktop\project\jarvis\jarvis\env\Lib\site-packages\comtypes\gen'
+2025-02-19 14:55:39,793 - django.request - ERROR - Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Users\sayye\Desktop\project\jarvis\jarvis\env\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\sayye\Desktop\project\jarvis\jarvis\env\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\sayye\Desktop\project\jarvis\jarvis\env\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\sayye\Desktop\project\jarvis\jarvis\assistant\views.py", line 232, in process_command
+    return render(request, 'assistant.html')
+  File "C:\Users\sayye\Desktop\project\jarvis\jarvis\env\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\sayye\Desktop\project\jarvis\jarvis\env\Lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+  File "C:\Users\sayye\Desktop\project\jarvis\jarvis\env\Lib\site-packages\django\template\loader.py", line 19, in get_template
+    raise TemplateDoesNotExist(template_name, chain=chain)
+django.template.exceptions.TemplateDoesNotExist: assistant.html
+2025-02-19 14:57:25,050 - django.utils.autoreload - INFO - C:\Users\sayye\Desktop\project\jarvis\jarvis\assistant\urls.py changed, reloading.
+2025-02-19 14:57:25,668 - django.utils.autoreload - INFO - C:\Users\sayye\Desktop\project\jarvis\jarvis\assistant\urls.py changed, reloading.
+2025-02-19 14:57:29,079 - comtypes.client._code_cache - INFO - Imported existing <module 'comtypes.gen' from 'C:\\Users\\sayye\\Desktop\\project\\jarvis\\jarvis\\env\\Lib\\site-packages\\comtypes\\gen\\__init__.py'>
+2025-02-19 14:57:29,080 - comtypes.client._code_cache - INFO - Using writeable comtypes cache directory: 'C:\Users\sayye\Desktop\project\jarvis\jarvis\env\Lib\site-packages\comtypes\gen'
+2025-02-19 14:57:29,340 - comtypes.client._code_cache - INFO - Imported existing <module 'comtypes.gen' from 'C:\\Users\\sayye\\Desktop\\project\\jarvis\\jarvis\\env\\Lib\\site-packages\\comtypes\\gen\\__init__.py'>
+2025-02-19 14:57:29,341 - comtypes.client._code_cache - INFO - Using writeable comtypes cache directory: 'C:\Users\sayye\Desktop\project\jarvis\jarvis\env\Lib\site-packages\comtypes\gen'
+2025-02-19 14:57:37,272 - django.utils.autoreload - INFO - C:\Users\sayye\Desktop\project\jarvis\jarvis\assistant\urls.py changed, reloading.
+2025-02-19 14:57:37,393 - django.utils.autoreload - INFO - C:\Users\sayye\Desktop\project\jarvis\jarvis\assistant\urls.py changed, reloading.
+2025-02-19 14:57:40,750 - comtypes.client._code_cache - INFO - Imported existing <module 'comtypes.gen' from 'C:\\Users\\sayye\\Desktop\\project\\jarvis\\jarvis\\env\\Lib\\site-packages\\comtypes\\gen\\__init__.py'>
+2025-02-19 14:57:40,751 - comtypes.client._code_cache - INFO - Using writeable comtypes cache directory: 'C:\Users\sayye\Desktop\project\jarvis\jarvis\env\Lib\site-packages\comtypes\gen'
+2025-02-19 14:57:41,077 - comtypes.client._code_cache - INFO - Imported existing <module 'comtypes.gen' from 'C:\\Users\\sayye\\Desktop\\project\\jarvis\\jarvis\\env\\Lib\\site-packages\\comtypes\\gen\\__init__.py'>
+2025-02-19 14:57:41,078 - comtypes.client._code_cache - INFO - Using writeable comtypes cache directory: 'C:\Users\sayye\Desktop\project\jarvis\jarvis\env\Lib\site-packages\comtypes\gen'
+2025-02-19 14:57:44,892 - django.utils.autoreload - INFO - C:\Users\sayye\Desktop\project\jarvis\jarvis\assistant\urls.py changed, reloading.
+2025-02-19 14:57:45,097 - django.utils.autoreload - INFO - C:\Users\sayye\Desktop\project\jarvis\jarvis\assistant\urls.py changed, reloading.
+2025-02-19 14:57:48,817 - comtypes.client._code_cache - INFO - Imported existing <module 'comtypes.gen' from 'C:\\Users\\sayye\\Desktop\\project\\jarvis\\jarvis\\env\\Lib\\site-packages\\comtypes\\gen\\__init__.py'>
+2025-02-19 14:57:48,818 - comtypes.client._code_cache - INFO - Using writeable comtypes cache directory: 'C:\Users\sayye\Desktop\project\jarvis\jarvis\env\Lib\site-packages\comtypes\gen'
+2025-02-19 14:57:48,922 - comtypes.client._code_cache - INFO - Imported existing <module 'comtypes.gen' from 'C:\\Users\\sayye\\Desktop\\project\\jarvis\\jarvis\\env\\Lib\\site-packages\\comtypes\\gen\\__init__.py'>
+2025-02-19 14:57:48,924 - comtypes.client._code_cache - INFO - Using writeable comtypes cache directory: 'C:\Users\sayye\Desktop\project\jarvis\jarvis\env\Lib\site-packages\comtypes\gen'
+2025-02-19 14:57:50,542 - django.utils.autoreload - INFO - C:\Users\sayye\Desktop\project\jarvis\jarvis\assistant\urls.py changed, reloading.
+2025-02-19 14:57:50,573 - django.utils.autoreload - INFO - C:\Users\sayye\Desktop\project\jarvis\jarvis\assistant\urls.py changed, reloading.
+2025-02-19 14:57:54,118 - comtypes.client._code_cache - INFO - Imported existing <module 'comtypes.gen' from 'C:\\Users\\sayye\\Desktop\\project\\jarvis\\jarvis\\env\\Lib\\site-packages\\comtypes\\gen\\__init__.py'>
+2025-02-19 14:57:54,119 - comtypes.client._code_cache - INFO - Using writeable comtypes cache directory: 'C:\Users\sayye\Desktop\project\jarvis\jarvis\env\Lib\site-packages\comtypes\gen'
+2025-02-19 14:57:54,134 - comtypes.client._code_cache - INFO - Imported existing <module 'comtypes.gen' from 'C:\\Users\\sayye\\Desktop\\project\\jarvis\\jarvis\\env\\Lib\\site-packages\\comtypes\\gen\\__init__.py'>
+2025-02-19 14:57:54,135 - comtypes.client._code_cache - INFO - Using writeable comtypes cache directory: 'C:\Users\sayye\Desktop\project\jarvis\jarvis\env\Lib\site-packages\comtypes\gen'
+2025-02-19 14:57:56,052 - django.utils.autoreload - INFO - C:\Users\sayye\Desktop\project\jarvis\jarvis\assistant\urls.py changed, reloading.
+2025-02-19 14:57:56,089 - django.utils.autoreload - INFO - C:\Users\sayye\Desktop\project\jarvis\jarvis\assistant\urls.py changed, reloading.
+2025-02-19 14:57:59,618 - comtypes.client._code_cache - INFO - Imported existing <module 'comtypes.gen' from 'C:\\Users\\sayye\\Desktop\\project\\jarvis\\jarvis\\env\\Lib\\site-packages\\comtypes\\gen\\__init__.py'>
+2025-02-19 14:57:59,619 - comtypes.client._code_cache - INFO - Using writeable comtypes cache directory: 'C:\Users\sayye\Desktop\project\jarvis\jarvis\env\Lib\site-packages\comtypes\gen'
+2025-02-19 14:57:59,647 - comtypes.client._code_cache - INFO - Imported existing <module 'comtypes.gen' from 'C:\\Users\\sayye\\Desktop\\project\\jarvis\\jarvis\\env\\Lib\\site-packages\\comtypes\\gen\\__init__.py'>
+2025-02-19 14:57:59,648 - comtypes.client._code_cache - INFO - Using writeable comtypes cache directory: 'C:\Users\sayye\Desktop\project\jarvis\jarvis\env\Lib\site-packages\comtypes\gen'
+2025-02-19 14:58:02,773 - django.utils.autoreload - INFO - C:\Users\sayye\Desktop\project\jarvis\jarvis\assistant\urls.py changed, reloading.
+2025-02-19 14:58:02,797 - django.utils.autoreload - INFO - C:\Users\sayye\Desktop\project\jarvis\jarvis\assistant\urls.py changed, reloading.
+2025-02-19 14:58:06,680 - comtypes.client._code_cache - INFO - Imported existing <module 'comtypes.gen' from 'C:\\Users\\sayye\\Desktop\\project\\jarvis\\jarvis\\env\\Lib\\site-packages\\comtypes\\gen\\__init__.py'>
+2025-02-19 14:58:06,681 - comtypes.client._code_cache - INFO - Using writeable comtypes cache directory: 'C:\Users\sayye\Desktop\project\jarvis\jarvis\env\Lib\site-packages\comtypes\gen'
+2025-02-19 14:58:06,729 - comtypes.client._code_cache - INFO - Imported existing <module 'comtypes.gen' from 'C:\\Users\\sayye\\Desktop\\project\\jarvis\\jarvis\\env\\Lib\\site-packages\\comtypes\\gen\\__init__.py'>
+2025-02-19 14:58:06,732 - comtypes.client._code_cache - INFO - Using writeable comtypes cache directory: 'C:\Users\sayye\Desktop\project\jarvis\jarvis\env\Lib\site-packages\comtypes\gen'
+2025-02-19 14:58:18,678 - voice_assistant - INFO - 
+--- NEW COMMAND PROCESSING ---
+2025-02-19 14:58:18,780 - voice_assistant - INFO - Available microphones: 12 devices
+2025-02-19 14:58:25,539 - voice_assistant - INFO - Command received: 'what is'
+2025-02-19 14:58:25,540 - voice_assistant - INFO - Wikipedia search for: 
+2025-02-19 14:58:26,967 - voice_assistant - ERROR - Wikipedia error: An unknown error occured: "The "srsearch" parameter must be set.". Please report it on GitHub!
+2025-02-19 14:58:26,969 - voice_assistant - INFO - Response: I had trouble searching for that information.
+2025-02-19 14:58:31,182 - voice_assistant - INFO - 
+--- NEW COMMAND PROCESSING ---
+2025-02-19 14:58:31,230 - voice_assistant - INFO - Available microphones: 12 devices
+2025-02-19 14:58:38,298 - voice_assistant - INFO - Command received: 'i don't understand that'
+2025-02-19 14:58:38,330 - voice_assistant - INFO - Response: I couldn't hear you clearly. Please try again.
+2025-02-19 14:58:39,215 - voice_assistant - INFO - 
+--- NEW COMMAND PROCESSING ---
+2025-02-19 14:58:39,250 - voice_assistant - INFO - Available microphones: 12 devices
+2025-02-19 14:58:47,045 - voice_assistant - INFO - Command received: 'i don't understand that'
+2025-02-19 14:58:47,078 - voice_assistant - INFO - Response: I couldn't hear you clearly. Please try again.
+2025-02-19 14:58:50,466 - voice_assistant - INFO - 
+--- NEW COMMAND PROCESSING ---
+2025-02-19 14:58:50,499 - voice_assistant - INFO - Available microphones: 12 devices
+2025-02-19 14:58:55,326 - voice_assistant - INFO - Command received: 'i don't understand that'
+2025-02-19 14:58:55,358 - voice_assistant - INFO - Response: I couldn't hear you clearly. Please try again.
+2025-02-19 14:58:59,269 - voice_assistant - INFO - 
+--- NEW COMMAND PROCESSING ---
+2025-02-19 14:58:59,316 - voice_assistant - INFO - Available microphones: 12 devices
+2025-02-19 14:59:07,709 - voice_assistant - INFO - Command received: 'music'
+2025-02-19 14:59:07,710 - voice_assistant - INFO - Response: I heard you say: music. How can I help with that?
+2025-02-19 14:59:16,210 - voice_assistant - INFO - 
+--- NEW COMMAND PROCESSING ---
+2025-02-19 14:59:16,240 - voice_assistant - INFO - Available microphones: 12 devices
+2025-02-19 14:59:27,908 - voice_assistant - INFO - Command received: 'play'
+2025-02-19 14:59:27,909 - voice_assistant - INFO - YouTube request for: 
+2025-02-19 14:59:32,281 - voice_assistant - INFO - Response: Playing  on YouTube
+2025-02-19 14:59:46,800 - voice_assistant - INFO - 
+--- NEW COMMAND PROCESSING ---
+2025-02-19 14:59:46,856 - voice_assistant - INFO - Available microphones: 12 devices
+2025-02-19 15:00:04,897 - voice_assistant - INFO - Command received: 'i don't understand that'
+2025-02-19 15:00:04,934 - voice_assistant - INFO - Response: I couldn't hear you clearly. Please try again.
+2025-02-19 15:00:11,124 - voice_assistant - INFO - 
+--- NEW COMMAND PROCESSING ---
+2025-02-19 15:00:11,161 - voice_assistant - INFO - Available microphones: 12 devices
+2025-02-19 15:00:25,465 - voice_assistant - INFO - Command received: 'i don't understand that'
+2025-02-19 15:00:25,511 - voice_assistant - INFO - Response: I couldn't hear you clearly. Please try again.
+2025-02-19 15:00:58,187 - voice_assistant - INFO - 
+--- NEW COMMAND PROCESSING ---
+2025-02-19 15:00:58,235 - voice_assistant - INFO - Available microphones: 12 devices
+2025-02-19 15:01:07,661 - voice_assistant - INFO - Command received: 'hi how are you'
+2025-02-19 15:01:07,661 - voice_assistant - INFO - Response: Hello there! How can I help you today?
+2025-02-19 15:01:08,043 - voice_assistant - INFO - 
+--- NEW COMMAND PROCESSING ---
+2025-02-19 15:01:08,098 - voice_assistant - INFO - Available microphones: 12 devices
+2025-02-19 15:01:20,858 - voice_assistant - INFO - Command received: 'i don't understand that'
+2025-02-19 15:01:20,889 - voice_assistant - INFO - Response: I couldn't hear you clearly. Please try again.
+2025-02-19 15:01:23,438 - voice_assistant - INFO - 
+--- NEW COMMAND PROCESSING ---
+2025-02-19 15:01:23,488 - voice_assistant - INFO - Available microphones: 12 devices
+2025-02-19 15:01:38,867 - voice_assistant - INFO - Command received: 'who is mr'
+2025-02-19 15:01:38,867 - voice_assistant - INFO - Wikipedia search for: mr
+2025-02-19 15:02:00,160 - voice_assistant - INFO - Response: M, or m, is the thirteenth letter of the Latin alphabet, used in the modern English alphabet, the alphabets of several western European languages and others worldwide. Its name in English is em (pronounced ), plural ems.
+2025-02-19 15:02:17,977 - voice_assistant - INFO - 
+--- NEW COMMAND PROCESSING ---
+2025-02-19 15:02:18,022 - voice_assistant - INFO - Available microphones: 12 devices
+2025-02-19 15:02:32,671 - voice_assistant - INFO - Command received: 'i don't understand that'
+2025-02-19 15:02:32,714 - voice_assistant - INFO - Response: I couldn't hear you clearly. Please try again.
+2025-02-19 15:07:56,558 - voice_assistant - INFO - 
+--- NEW COMMAND PROCESSING ---
+2025-02-19 15:07:56,601 - voice_assistant - INFO - Available microphones: 12 devices
+2025-02-19 15:08:19,908 - voice_assistant - INFO - Command received: 'i don't understand that'
+2025-02-19 15:08:19,945 - voice_assistant - INFO - Response: I couldn't hear you clearly. Please try again.
+2025-02-19 15:08:20,710 - voice_assistant - INFO - 
+--- NEW COMMAND PROCESSING ---
+2025-02-19 15:08:20,759 - voice_assistant - INFO - Available microphones: 12 devices
+2025-02-19 15:08:31,028 - django.utils.autoreload - INFO - C:\Users\sayye\Desktop\project\jarvis\jarvis\assistant\views.py changed, reloading.
+2025-02-19 15:08:31,058 - django.utils.autoreload - INFO - C:\Users\sayye\Desktop\project\jarvis\jarvis\assistant\views.py changed, reloading.

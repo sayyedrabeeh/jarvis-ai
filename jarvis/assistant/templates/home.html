@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Text Assistant</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #2a3990, #ff476e);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 900px;
+            background: rgba(255, 255, 255, 0.12);
+            backdrop-filter: blur(12px);
+            border-radius: 24px;
+            padding: 40px;
+            box-shadow: 0 20px 30px rgba(0,0,0,0.25);
+        }
+
+        .assistant-header {
+            text-align: center;
+            margin-bottom: 40px;
+            color: white;
+        }
+
+        .assistant-header h1 {
+            font-size: 3em;
+            margin-bottom: 15px;
+            text-shadow: 0 3px 6px rgba(0,0,0,0.2);
+            background: linear-gradient(to right, #ffffff, #d9f0ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .assistant-header p {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+
+        .welcome-content {
+            text-align: center;
+            color: white;
+            margin-bottom: 40px;
+        }
+
+        .welcome-content h2 {
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+
+        .welcome-content p {
+            font-size: 1.1em;
+            line-height: 1.6;
+            margin-bottom: 30px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+
+        .feature-item {
+            background: rgba(255, 255, 255, 0.15);
+            padding: 25px;
+            border-radius: 16px;
+            text-align: center;
+            transition: transform 0.3s ease, background 0.3s ease;
+            color: white;
+        }
+
+        .feature-item:hover {
+            transform: translateY(-10px);
+            background: rgba(255, 255, 255, 0.25);
+        }
+
+        .feature-icon {
+            font-size: 2.5em;
+            margin-bottom: 15px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 15px 40px;
+            background: linear-gradient(to right, #ff476e, #ff7b4d);
+            color: white;
+            text-decoration: none;
+            border-radius: 30px;
+            font-size: 1.2em;
+            font-weight: 600;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 10px 20px rgba(255, 71, 110, 0.3);
+            margin-top: 20px;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 25px rgba(255, 71, 110, 0.4);
+        }
+
+        .status-indicator {
+            display: inline-block;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            margin-right: 10px;
+            background: #4CAF50;
+            box-shadow: 0 0 10px #4CAF50;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.9em;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 30px 20px;
+            }
+            
+            .assistant-header h1 {
+                font-size: 2.2em;
+            }
+            
+            .welcome-content h2 {
+                font-size: 1.8em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="assistant-header">
+            <h1>AI Text Assistant</h1>
+            <p><span class="status-indicator"></span>Online and Ready to Help</p>
+        </div>
+
+        <div class="welcome-content">
+            <h2>Your Personal AI Assistant</h2>
+            <p>Get instant answers, assistance, and information with our powerful AI system. Whether you need help with research, quick facts, or just someone to chat with, we've got you covered.</p>
+            
+            <div class="features-grid">
+                <div class="feature-item">
+                    <div class="feature-icon">🔍</div>
+                    <h3>Instant Answers</h3>
+                    <p>Get immediate responses to your questions on any topic</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">🧠</div>
+                    <h3>Smart Assistance</h3>
+                    <p>Let AI help with research, summaries, and information gathering</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">💬</div>
+                    <h3>Natural Conversation</h3>
+                    <p>Chat naturally as if you're talking with a knowledgeable friend</p>
+                </div>
+            </div>
+            
+            <a href="{% url  'process_command'%}" class="cta-button">Start Chatting Now</a>
+        </div>
+
+        <div class="footer">
+            <p>© 2025 AI Text Assistant | Privacy Policy | Terms of Service</p>
+        </div>
+    </div>
+
+    <script>
+        // Simple animation for the status indicator
+        const statusIndicator = document.querySelector('.status-indicator');
+        
+        function pulseAnimation() {
+            statusIndicator.style.opacity = 0.6;
+            setTimeout(() => {
+                statusIndicator.style.opacity = 1;
+                setTimeout(pulseAnimation, 2000);
+            }, 1000);
+        }
+        
+        pulseAnimation();
+    </script>
+</body>
+</html>
