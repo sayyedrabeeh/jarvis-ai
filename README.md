@@ -151,7 +151,7 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 
 ⭐ **Star this repo if you find it useful!** ⭐
 
-<p align="center">Developed with ❤️ for Poeples</p>
+<p align="center">Developed with ❤️ME for Poeples</p>
 
  
 <h3 align="center">Happy Coding </h3>
