@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Professional AI Text Assistant</title>
+    <title>Vi Assistant</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
     <style>
         * {
@@ -24,7 +24,7 @@
 
         .container {
             width: 100%;
-            max-width: 1000px;
+            max-width: 1100px;
             background: rgba(255, 255, 255, 0.95);
             border-radius: 12px;
             overflow: hidden;
@@ -33,16 +33,21 @@
         }
 
         .sidebar {
-            width: 300px;
+            width: 350px;
             background: #f8f9fa;
             border-right: 1px solid #e9ecef;
             padding: 25px 20px;
+            overflow-y: auto;
+            max-height: 700px;
         }
 
         .main-content {
             flex: 1;
             padding: 25px;
             background: white;
+            display: flex;
+            flex-direction: column;
+            height: 700px;
         }
 
         .branding {
@@ -82,19 +87,20 @@
             letter-spacing: 1px;
             color: #7f8c8d;
             margin-bottom: 15px;
+            margin-top: 25px;
             font-weight: 500;
         }
 
-        .quick-commands {
-            margin-bottom: 30px;
+        .commands-section {
+            margin-bottom: 20px;
         }
 
         .command-button {
             display: flex;
             align-items: center;
             width: 100%;
-            padding: 12px 15px;
-            margin-bottom: 8px;
+            padding: 10px 15px;
+            margin-bottom: 6px;
             background: white;
             border: 1px solid #e9ecef;
             border-radius: 8px;
@@ -102,7 +108,7 @@
             text-align: left;
             cursor: pointer;
             transition: all 0.2s ease;
-            font-size: 14px;
+            font-size: 13px;
         }
 
         .command-button:hover {
@@ -122,51 +128,6 @@
             align-items: center;
             justify-content: center;
             font-size: 12px;
-        }
-
-        .conversation-item {
-            display: flex;
-            align-items: center;
-            padding: 12px;
-            background: white;
-            border: 1px solid #e9ecef;
-            border-radius: 8px;
-            margin-bottom: 10px;
-            cursor: pointer;
-            transition: all 0.2s ease;
-        }
-
-        .conversation-item:hover {
-            background: #f1f8fd;
-            border-color: #c9e2f3;
-        }
-
-        .conversation-icon {
-            width: 32px;
-            height: 32px;
-            background: #ecf0f1;
-            border-radius: 50%;
-            margin-right: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 14px;
-        }
-
-        .conversation-details {
-            flex: 1;
-        }
-
-        .conversation-title {
-            font-weight: 500;
-            margin-bottom: 4px;
-            font-size: 14px;
-            color: #2c3e50;
-        }
-
-        .conversation-preview {
-            font-size: 12px;
-            color: #7f8c8d;
         }
 
         .chat-header {
@@ -203,7 +164,7 @@
         }
 
         .conversation-history {
-            height: 400px;
+            flex: 1;
             overflow-y: auto;
             margin-bottom: 20px;
             padding-right: 10px;
@@ -299,27 +260,53 @@
             background: #2980b9;
         }
 
-        .conversation-history::-webkit-scrollbar {
+        .conversation-history::-webkit-scrollbar, .sidebar::-webkit-scrollbar {
             width: 6px;
         }
 
-        .conversation-history::-webkit-scrollbar-track {
+        .conversation-history::-webkit-scrollbar-track, .sidebar::-webkit-scrollbar-track {
             background: #f8f9fa;
             border-radius: 10px;
         }
 
-        .conversation-history::-webkit-scrollbar-thumb {
+        .conversation-history::-webkit-scrollbar-thumb, .sidebar::-webkit-scrollbar-thumb {
             background: #cbd5e0;
             border-radius: 10px;
         }
 
-        .conversation-history::-webkit-scrollbar-thumb:hover {
+        .conversation-history::-webkit-scrollbar-thumb:hover, .sidebar::-webkit-scrollbar-thumb:hover {
             background: #a0aec0;
         }
 
         .status-indicator.processing {
             background: #e74c3c;
             animation: blink 1s infinite;
+        }
+
+        .command-groups {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 10px;
+        }
+        
+        .command-group {
+            background: #e9f4fe;
+            color: #2980b9;
+            border-radius: 4px;
+            padding: 5px 10px;
+            font-size: 12px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        
+        .command-group:hover {
+            background: #d4e9f7;
+        }
+        
+        .active-group {
+            background: #3498db;
+            color: white;
         }
 
         @keyframes blink {
@@ -331,59 +318,183 @@
     <div class="container">
         <div class="sidebar">
             <div class="branding">
-                <div class="logo">AI</div>
+                <div class="logo">VI</div>
                 <div class="brand-text">
-                    <h2>RABI Assistant</h2>
-                    <p> Simple  Solutions</p>
+                    <h2>Vi  Assistant</h2>
+                    <p>Simple Solutions</p>
                 </div>
             </div>
 
-            <div class="quick-commands">
-                <h3 class="section-title">Quick Commands</h3>
+            <div class="command-groups">
+                <div class="command-group active-group" onclick="showCommandSection('general')">General</div>
+                <div class="command-group" onclick="showCommandSection('questions')">Questions</div>
+                <div class="command-group" onclick="showCommandSection('open')">Open</div>
+                <div class="command-group" onclick="showCommandSection('play')">Play</div>
+                <div class="command-group" onclick="showCommandSection('search')">Search</div>
+            </div>
+
+             
+            <div class="commands-section" id="general-commands">
+                <h3 class="section-title">General Commands</h3>
                 <button class="command-button" onclick="insertCommand('What time is it?')">
                     <span class="command-icon">🕒</span> What time is it?
+                </button>
+                <button class="command-button" onclick="insertCommand('What date is it today?')">
+                    <span class="command-icon">📅</span> What date is it today?
                 </button>
                 <button class="command-button" onclick="insertCommand('Tell me a joke')">
                     <span class="command-icon">😊</span> Tell me a joke
                 </button>
-                <button class="command-button" onclick="insertCommand('Search for climate change')">
-                    <span class="command-icon">🔍</span> Search for climate change
+                <button class="command-button" onclick="insertCommand('Tell me something interesting')">
+                    <span class="command-icon">💡</span> Tell me something
                 </button>
+                <button class="command-button" onclick="insertCommand('Random talk')">
+                    <span class="command-icon">💬</span> Random talk
+                </button>
+                <button class="command-button" onclick="insertCommand('Thanks')">
+                    <span class="command-icon">👍</span> Thanks
+                </button>
+                <button class="command-button" onclick="insertCommand('Goodbye')">
+                    <span class="command-icon">👋</span> Goodbye
+                </button>
+            </div>
+
+            
+            <div class="commands-section" id="questions-commands" style="display:none;">
+                <h3 class="section-title">Information Queries</h3>
                 <button class="command-button" onclick="insertCommand('Who is Albert Einstein?')">
                     <span class="command-icon">👨‍🔬</span> Who is Albert Einstein?
+                </button>
+                <button class="command-button" onclick="insertCommand('What is artificial intelligence?')">
+                    <span class="command-icon">🤖</span> What is artificial intelligence?
+                </button>
+                <button class="command-button" onclick="insertCommand('Who is Marie Curie?')">
+                    <span class="command-icon">👩‍🔬</span> Who is Marie Curie?
+                </button>
+                <button class="command-button" onclick="insertCommand('What is climate change?')">
+                    <span class="command-icon">🌡️</span> What is climate change?
+                </button>
+                <button class="command-button" onclick="insertCommand('Who is Elon Musk?')">
+                    <span class="command-icon">🚀</span> Who is Elon Musk?
+                </button>
+                <button class="command-button" onclick="insertCommand('What is quantum physics?')">
+                    <span class="command-icon">⚛️</span> What is quantum physics?
+                </button>
+            </div>
+
+           
+            <div class="commands-section" id="open-commands" style="display:none;">
+                <h3 class="section-title">Open Websites</h3>
+                <button class="command-button" onclick="insertCommand('Open YouTube')">
+                    <span class="command-icon">📺</span> Open YouTube
+                </button>
+                <button class="command-button" onclick="insertCommand('Open Google')">
+                    <span class="command-icon">🔍</span> Open Google
+                </button>
+                <button class="command-button" onclick="insertCommand('Open Facebook')">
+                    <span class="command-icon">👥</span> Open Facebook
+                </button>
+                <button class="command-button" onclick="insertCommand('Open Twitter')">
+                    <span class="command-icon">🐦</span> Open Twitter
+                </button>
+                <button class="command-button" onclick="insertCommand('Open Instagram')">
+                    <span class="command-icon">📷</span> Open Instagram
+                </button>
+                <button class="command-button" onclick="insertCommand('Open LinkedIn')">
+                    <span class="command-icon">💼</span> Open LinkedIn
+                </button>
+                <button class="command-button" onclick="insertCommand('Open GitHub')">
+                    <span class="command-icon">🐙</span> Open GitHub
+                </button>
+                <button class="command-button" onclick="insertCommand('Open Reddit')">
+                    <span class="command-icon">🤖</span> Open Reddit
+                </button>
+                <button class="command-button" onclick="insertCommand('Open Stack Overflow')">
+                    <span class="command-icon">📚</span> Open Stack Overflow
+                </button>
+                <button class="command-button" onclick="insertCommand('Open Pinterest')">
+                    <span class="command-icon">📌</span> Open Pinterest
+                </button>
+                <button class="command-button" onclick="insertCommand('Open Quora')">
+                    <span class="command-icon">❓</span> Open Quora
+                </button>
+                <button class="command-button" onclick="insertCommand('Open Wikipedia')">
+                    <span class="command-icon">📖</span> Open Wikipedia
+                </button>
+                <button class="command-button" onclick="insertCommand('Open Spotify')">
+                    <span class="command-icon">🎵</span> Open Spotify
+                </button>
+                <button class="command-button" onclick="insertCommand('Open Netflix')">
+                    <span class="command-icon">🎬</span> Open Netflix
+                </button>
+                <button class="command-button" onclick="insertCommand('Open Amazon')">
+                    <span class="command-icon">🛒</span> Open Amazon
+                </button>
+                <button class="command-button" onclick="insertCommand('Open IMDb')">
+                    <span class="command-icon">🎭</span> Open IMDb
+                </button>
+                <button class="command-button" onclick="insertCommand('Open Weather')">
+                    <span class="command-icon">☁️</span> Open Weather
+                </button>
+                <button class="command-button" onclick="insertCommand('Open News')">
+                    <span class="command-icon">📰</span> Open News
+                </button>
+                <button class="command-button" onclick="insertCommand('Open CNN')">
+                    <span class="command-icon">📺</span> Open CNN
+                </button>
+            </div>
+
+           
+            <div class="commands-section" id="play-commands" style="display:none;">
+                <h3 class="section-title">Play Music & Videos</h3>
+                <button class="command-button" onclick="insertCommand('Play Despacito')">
+                    <span class="command-icon">🎵</span> Play Despacito
                 </button>
                 <button class="command-button" onclick="insertCommand('Play relaxing music')">
                     <span class="command-icon">🎵</span> Play relaxing music
                 </button>
-                <button class="command-button" onclick="insertCommand('Open YouTube')">
-                    <span class="command-icon">📺</span> Open YouTube
+                <button class="command-button" onclick="insertCommand('Play Shape of You on Spotify')">
+                    <span class="command-icon">🎧</span> Play Shape of You on Spotify
+                </button>
+                <button class="command-button" onclick="insertCommand('Play Baby Shark')">
+                    <span class="command-icon">🦈</span> Play Baby Shark
+                </button>
+                <button class="command-button" onclick="insertCommand('Play Billie Eilish on SoundCloud')">
+                    <span class="command-icon">🌊</span> Play Billie Eilish on SoundCloud
+                </button>
+                <button class="command-button" onclick="insertCommand('Play classical music')">
+                    <span class="command-icon">🎻</span> Play classical music
+                </button>
+                <button class="command-button" onclick="insertCommand('Play Bollywood songs on Gaana')">
+                    <span class="command-icon">🎤</span> Play Bollywood songs on Gaana
+                </button>
+                <button class="command-button" onclick="insertCommand('Play top hits')">
+                    <span class="command-icon">🎵</span> Play top hits
                 </button>
             </div>
 
-            <!-- <div class="recent-conversations">
-                <h3 class="section-title">Recent Conversations</h3>
-                <div class="conversation-item">
-                    <div class="conversation-icon">📚</div>
-                    <div class="conversation-details">
-                        <div class="conversation-title">General Questions</div>
-                        <div class="conversation-preview">Tell me about the solar system...</div>
-                    </div>
-                </div>
-                <div class="conversation-item">
-                    <div class="conversation-icon">💻</div>
-                    <div class="conversation-details">
-                        <div class="conversation-title">Programming Help</div>
-                        <div class="conversation-preview">How do I fix this JavaScript...</div>
-                    </div>
-                </div>
-                <div class="conversation-item">
-                    <div class="conversation-icon">📝</div>
-                    <div class="conversation-details">
-                        <div class="conversation-title">Book Recommendations</div>
-                        <div class="conversation-preview">Suggest books about history...</div>
-                    </div>
-                </div>
-            </div> -->
+             
+            <div class="commands-section" id="search-commands" style="display:none;">
+                <h3 class="section-title">Search Queries</h3>
+                <button class="command-button" onclick="insertCommand('Search for climate change')">
+                    <span class="command-icon">🔍</span> Search for climate change
+                </button>
+                <button class="command-button" onclick="insertCommand('Search for healthy recipes')">
+                    <span class="command-icon">🍲</span> Search for healthy recipes
+                </button>
+                <button class="command-button" onclick="insertCommand('Search for Python tutorials')">
+                    <span class="command-icon">🐍</span> Search for Python tutorials
+                </button>
+                <button class="command-button" onclick="insertCommand('Search for tourist places')">
+                    <span class="command-icon">🗺️</span> Search for tourist places
+                </button>
+                <button class="command-button" onclick="insertCommand('Search for electric cars')">
+                    <span class="command-icon">🚗</span> Search for electric cars
+                </button>
+                <button class="command-button" onclick="insertCommand('Search for AI news')">
+                    <span class="command-icon">📰</span> Search for AI news
+                </button>
+            </div>
         </div>
 
         <div class="main-content">
@@ -398,9 +509,9 @@
             <div class="conversation-history" id="conversationHistory">
                 <div class="message assistant-message">
                     <div class="message-bubble">
-                        Welcome to CGPatAI Assistant. How may I assist you with your professional inquiries today?
+                        Welcome to RABI Assistant. How may I assist you today? Try one of the commands from the sidebar!
                     </div>
-                    <div class="message-meta">Today, 10:05 AM</div>
+                    <div class="message-meta">Today, {{ current_time }}</div>
                 </div>
             </div>
 
@@ -417,7 +528,7 @@
     </div>
 
     <script>
-    // Maintain original functionality
+  
     const textInput = document.getElementById('textInput');
     const sendButton = document.getElementById('sendButton');
     const statusIndicator = document.getElementById('statusIndicator');
@@ -426,7 +537,7 @@
     function sendCommand(command) {
         if (!command) return;
         
-        // Add user message to conversation history
+         
         const currentTime = new Date().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
         
         const userMessageElement = document.createElement('div');
@@ -500,7 +611,8 @@
             "What time is it?", 
             "Who is Marie Curie?",
             "Tell me something interesting",
-            "What's the weather like?"
+            "Open YouTube",
+            "Play relaxing music"
         ];
         
         const randomSuggestion = suggestions[Math.floor(Math.random() * suggestions.length)];
@@ -519,7 +631,25 @@
         conversationHistory.scrollTop = conversationHistory.scrollHeight;
     }
 
-    // Event listeners
+    function showCommandSection(section) {
+        
+        document.querySelectorAll('.commands-section').forEach(elem => {
+            elem.style.display = 'none';
+        });
+        
+        
+        document.getElementById(section + '-commands').style.display = 'block';
+        
+        
+        document.querySelectorAll('.command-group').forEach(elem => {
+            elem.classList.remove('active-group');
+        });
+        
+         
+        event.target.classList.add('active-group');
+    }
+
+    
     sendButton.addEventListener('click', () => {
         sendCommand(textInput.value);
     });
@@ -531,13 +661,13 @@
         }
     });
 
-    // Auto-resize textarea
+    
     textInput.addEventListener('input', function() {
         this.style.height = 'auto';
         this.style.height = (this.scrollHeight < 120) ? this.scrollHeight + 'px' : '120px';
     });
 
-    // Idle timer functionality
+    
     let idleTimer;
     function resetIdleTimer() {
         clearTimeout(idleTimer);
@@ -546,7 +676,7 @@
                 const idleMessages = [
                     "Still there? Feel free to ask me anything.",
                     "Just checking in. Need any assistance?",
-                    "Wondering what else I can do? Try asking for a joke or the time!"
+                    "Wondering what else I can do? Try checking out the command categories in the sidebar!"
                 ];
                 const randomMessage = idleMessages[Math.floor(Math.random() * idleMessages.length)];
                 const currentTime = new Date().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
