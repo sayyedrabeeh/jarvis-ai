@@ -108,14 +108,65 @@ def process_command(request):
                   response = f"Searching for '{query}' on the web."
                 except Exception as e:
                       response = f"Error searching: {str(e)}"
-                      
-            elif 'play' in command:
-                song = command.replace('play', '').strip()
-                try:
+
+          
+
+ 
+            elif any(difflib.get_close_matches(word, ['play'], cutoff=0.75) for word in command.split()):
+             print('hi')
+             try:
+                words = command.lower().split()
+                play_word = difflib.get_close_matches("play", words, n=1, cutoff=0.75)
+                if not play_word:
+                    response = "It looks like you're trying to play something, but I couldn't understand the command. Try 'play <song name>'."
+                    return JsonResponse({'response': response})   
+                song = command.strip()
+                print('so:',song)
+
+                if not song:
+                   response = "Please tell me the name of the song you'd like to play."
+                   return JsonResponse({'response': response}) 
+                
+                command = command.replace(play_word[0], '', 1).strip()
+        
+                platforms = {
+                    "youtube": ["youtube", "utub", "youtub", "you tube"],
+                    "spotify": ["spotify", "spotfy", "spootify", "spotifi"],
+                    "resso": ["resso", "ressooo", "ressso"],
+                    "jiosaavn": ["jiosaavn", "saavn", "jio saavan", "saavan"]
+                }
+        
+                platform = "youtube"  
+                for p_key, p_aliases in platforms.items():
+                    for word in words:
+                        match = difflib.get_close_matches(word, p_aliases, n=1, cutoff=0.75)
+                        if match:
+                            platform = p_key
+                            break
+        
+                for aliases in platforms.values():
+                    for alias in aliases:
+                        command = command.replace(alias, '')
+        
+                song = command.strip()
+                if not song:
+                    response = "Please mention the song you want to play."
+                elif platform == "spotify":
+                    webbrowser.open_new_tab(f"https://open.spotify.com/search/{song}")
+                    response = f"Opening '{song}' on Spotify."
+                elif platform == "resso":
+                    webbrowser.open_new_tab(f"https://www.resso.com/search/{song}")
+                    response = f"Opening '{song}' on Resso."
+                elif platform == "jiosaavn":
+                    webbrowser.open_new_tab(f"https://www.jiosaavn.com/search/{song}")
+                    response = f"Opening '{song}' on JioSaavn."
+                else:
                     pywhatkit.playonyt(song)
                     response = f"Playing '{song}' on YouTube."
-                except Exception as e:
-                    response = f"Error playing: {str(e)}"
+        
+             except Exception as e:
+                response = f"Error playing song: {str(e)}"
+        
 
             elif 'joke' in command:
                 try:
