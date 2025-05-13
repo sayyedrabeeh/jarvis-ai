@@ -13,7 +13,6 @@ from django.http import JsonResponse
 import difflib
 from difflib import get_close_matches
 
-
 def home(request):
     return render(request, 'home.html')
 
@@ -173,11 +172,83 @@ def process_command(request):
             elif 'open youtube' in command:
                 webbrowser.open_new_tab("https://www.youtube.com")
                 response = "Opening YouTube in a new tab."
-
+            
             elif 'open google' in command:
                 webbrowser.open_new_tab("https://www.google.com")
                 response = "Opening Google in a new tab."
-
+            
+            elif 'open facebook' in command:
+                webbrowser.open_new_tab("https://www.facebook.com")
+                response = "Opening Facebook in a new tab."
+            
+            elif 'open twitter' in command:
+                webbrowser.open_new_tab("https://www.twitter.com")
+                response = "Opening Twitter in a new tab."
+            
+            elif 'open instagram' in command:
+                webbrowser.open_new_tab("https://www.instagram.com")
+                response = "Opening Instagram in a new tab."
+            
+            elif 'open linkedin' in command:
+                webbrowser.open_new_tab("https://www.linkedin.com")
+                response = "Opening LinkedIn in a new tab."
+            
+            elif 'open github' in command:
+                webbrowser.open_new_tab("https://www.github.com")
+                response = "Opening GitHub in a new tab."
+            
+            elif 'open reddit' in command:
+                webbrowser.open_new_tab("https://www.reddit.com")
+                response = "Opening Reddit in a new tab."
+            
+            elif 'open stackoverflow' in command:
+                webbrowser.open_new_tab("https://www.stackoverflow.com")
+                response = "Opening Stack Overflow in a new tab."
+            
+            elif 'open pinterest' in command:
+                webbrowser.open_new_tab("https://www.pinterest.com")
+                response = "Opening Pinterest in a new tab."
+            
+            elif 'open quora' in command:
+                webbrowser.open_new_tab("https://www.quora.com")
+                response = "Opening Quora in a new tab."
+            
+            elif 'open wikipedia' in command:
+                webbrowser.open_new_tab("https://www.wikipedia.org")
+                response = "Opening Wikipedia in a new tab."
+            
+            elif 'open spotify' in command:
+                webbrowser.open_new_tab("https://www.spotify.com")
+                response = "Opening Spotify in a new tab."
+            
+            elif 'open netflix' in command:
+                webbrowser.open_new_tab("https://www.netflix.com")
+                response = "Opening Netflix in a new tab."
+            
+            elif 'open amazon' in command:
+                webbrowser.open_new_tab("https://www.amazon.com")
+                response = "Opening Amazon in a new tab."
+            
+            elif 'open imdb' in command:
+                webbrowser.open_new_tab("https://www.imdb.com")
+                response = "Opening IMDb in a new tab."
+            
+            elif 'open weather' in command:
+                webbrowser.open_new_tab("https://www.weather.com")
+                response = "Opening Weather.com in a new tab."
+            
+            elif 'open news' in command:
+                webbrowser.open_new_tab("https://www.bbc.com/news")
+                response = "Opening the news page in a new tab."
+            
+            elif 'open cnn' in command:
+                webbrowser.open_new_tab("https://www.cnn.com")
+                response = "Opening CNN in a new tab."
+            
+            elif 'open reddit' in command:
+                webbrowser.open_new_tab("https://www.reddit.com")
+                response = "Opening Reddit in a new tab."
+            
             elif 'thank' in command:
                 response = "You're welcome! Is there anything else I can help you with?"
 
