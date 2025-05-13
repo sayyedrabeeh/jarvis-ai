@@ -80,7 +80,7 @@ def process_command(request):
                 matched = next((phrase for phrase in question_phrases if phrase in get_close_matches(phrase_candidate, question_phrases, n=1, cutoff=0.6)), None)
             else:
                 matched = None
-                
+
             if 'time' in command:
                 time = datetime.datetime.now().strftime('%H:%M:%S')
                 response = f"The current time is {time}"
@@ -118,60 +118,50 @@ def process_command(request):
 
  
             elif any(difflib.get_close_matches(word, ['play'], cutoff=0.75) for word in command.split()):
-             print('hi')
-             try:
-                words = command.lower().split()
-                play_word = difflib.get_close_matches("play", words, n=1, cutoff=0.75)
-                if not play_word:
-                    response = "It looks like you're trying to play something, but I couldn't understand the command. Try 'play <song name>'."
-                    return JsonResponse({'response': response})   
-                song = command.strip()
-                print('so:',song)
-
-                if not song:
-                   response = "Please tell me the name of the song you'd like to play."
-                   return JsonResponse({'response': response}) 
-                
-                command = command.replace(play_word[0], '', 1).strip()
-        
-                platforms = {
-                    "youtube": ["youtube", "utub", "youtub", "you tube"],
-                    "spotify": ["spotify", "spotfy", "spootify", "spotifi"],
-                    "resso": ["resso", "ressooo", "ressso"],
-                    "jiosaavn": ["jiosaavn", "saavn", "jio saavan", "saavan"]
-                }
-        
-                platform = "youtube"  
-                for p_key, p_aliases in platforms.items():
-                    for word in words:
-                        match = difflib.get_close_matches(word, p_aliases, n=1, cutoff=0.75)
-                        if match:
-                            platform = p_key
-                            break
-        
-                for aliases in platforms.values():
-                    for alias in aliases:
-                        command = command.replace(alias, '')
-        
-                song = command.strip()
-                if not song:
-                    response = "Please mention the song you want to play."
-                elif platform == "spotify":
-                    webbrowser.open_new_tab(f"https://open.spotify.com/search/{song}")
-                    response = f"Opening '{song}' on Spotify."
-                elif platform == "resso":
-                    webbrowser.open_new_tab(f"https://www.resso.com/search/{song}")
-                    response = f"Opening '{song}' on Resso."
-                elif platform == "jiosaavn":
-                    webbrowser.open_new_tab(f"https://www.jiosaavn.com/search/{song}")
-                    response = f"Opening '{song}' on JioSaavn."
-                else:
-                    pywhatkit.playonyt(song)
-                    response = f"Playing '{song}' on YouTube."
-        
-             except Exception as e:
-                response = f"Error playing song: {str(e)}"
-        
+                try:
+                    words = command.lower().split()
+                    play_word = difflib.get_close_matches("play", words, n=1, cutoff=0.75)
+                    if not play_word:
+                        response = "It looks like you're trying to play something, but I couldn't understand the command. Try 'play <song name>'."
+                        return JsonResponse({'response': response})
+                    command = command.replace(play_word[0], '', 1).strip()
+                    platforms = {
+                        "youtube": ["youtube", "utub", "youtub", "you tube"],
+                        "spotify": ["spotify", "spotfy", "spootify", "spotifi"],
+                        "jiosaavn": ["jiosaavn", "saavn", "jio saavan", "saavan"],
+                        "soundcloud": ["soundcloud", "sound cloudd", "sndcld"],
+                        "gaana": ["gaana", "ganaa", "gana"]
+                    }
+                    platform = "youtube"  
+                    for p_key, p_aliases in platforms.items():
+                        for word in words:
+                            match = difflib.get_close_matches(word, p_aliases, n=1, cutoff=0.75)
+                            if match:
+                                platform = p_key
+                                break
+                    for aliases in platforms.values():
+                        for alias in aliases:
+                            command = command.replace(alias, '').strip()
+                    command = ' '.join([word for word in command.split() if word not in ['on', 'in', 'by']])
+                    song = command.strip()
+                    if not song:
+                        response = "Please mention the song you want to play."
+                        return JsonResponse({'response': response})
+                    if platform == "spotify":
+                        webbrowser.open_new_tab(f"https://open.spotify.com/search/{song}")
+                        response = f"Opening '{song}' on Spotify."
+                    elif platform == "soundcloud":
+                        webbrowser.open_new_tab(f"https://soundcloud.com/search?q={song}")
+                        response = f"Opening '{song}' on SoundCloud."
+                    elif platform == "gaana":
+                        webbrowser.open_new_tab(f"https://gaana.com/search/{song}")
+                        response = f"Opening '{song}' on Gaana."
+                    else:
+                        pywhatkit.playonyt(song)
+                        response = f"Playing '{song}' on YouTube."
+                except Exception as e:
+                    response = f"Error playing song: {str(e)}"
+            
 
             elif 'joke' in command:
                 try:
