@@ -95,14 +95,20 @@ def process_command(request):
                 except Exception as e:
                     response = f"Error retrieving information: {str(e)}"
 
-            elif 'search' in command:
-                query = command.replace('search', '').strip()
+            elif any(difflib.get_close_matches(word, ['search'], cutoff=0.8) for word in command.split()):
                 try:
-                    pywhatkit.search(query)
-                    response = f"Searching for '{query}' on the web."
+                  possible_words = command.split()
+                  search_keyword = difflib.get_close_matches("search", possible_words, n=1, cutoff=0.8)
+                  if search_keyword:
+                     query = command.replace(search_keyword[0], '').strip()
+                  else:
+                     query = command.strip()
+         
+                  pywhatkit.search(query)
+                  response = f"Searching for '{query}' on the web."
                 except Exception as e:
-                    response = f"Error searching: {str(e)}"
-
+                      response = f"Error searching: {str(e)}"
+                      
             elif 'play' in command:
                 song = command.replace('play', '').strip()
                 try:
