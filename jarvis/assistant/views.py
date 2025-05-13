@@ -60,12 +60,17 @@ def process_command(request):
               return JsonResponse({'response': random.choice(GREETINGS)})
                 
         
-            if any(word in command for word in ['random talk', 'talk to me', 'say something', 'random', 'chat']):
-                response_type = random.choice(['small_talk', 'question'])
-                if response_type == 'small_talk':
-                    return JsonResponse({'response': random.choice(SMALL_TALK_RESPONSES)})
-                else:
-                    return JsonResponse({'response': random.choice(QUESTIONS)})
+            if any(phrase in command for phrase in [
+               'random talk', 'talk to me', 'say something', 'random', 'chat', 
+               'tell me something', 'tell something', 'tell me anything', 'something interesting', 
+               'talk something', 'speak to me', 'anything to say'
+           ]):
+               response_type = random.choice(['small_talk', 'question'])
+               if response_type == 'small_talk':
+                   return JsonResponse({'response': random.choice(SMALL_TALK_RESPONSES)})
+               else:
+                   return JsonResponse({'response': random.choice(QUESTIONS)})
+           
             
 
             if 'time' in command:
