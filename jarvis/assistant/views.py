@@ -10,6 +10,7 @@ import random
 from django.views.decorators.csrf import csrf_exempt
 from django.shortcuts import render
 from django.http import JsonResponse
+import difflib
 
 def home(request):
     return render(request, 'home.html')
@@ -55,8 +56,8 @@ def process_command(request):
             command = data.get('command', '').lower()
             
         
-            if command in ['hi', 'hello', 'hey', 'hllo', 'hlo', 'hii', 'hiiii']:
-                return JsonResponse({'response': random.choice(GREETINGS)})
+            if is_greeting(command):
+              return JsonResponse({'response': random.choice(GREETINGS)})
                 
         
             if any(word in command for word in ['random talk', 'talk to me', 'say something', 'random', 'chat']):
@@ -152,3 +153,8 @@ def get_random_conversation():
         return random.choice(SMALL_TALK_RESPONSES)
     else:
         return random.choice(QUESTIONS)
+    
+def is_greeting(command):
+    greetings = ['hi', 'hello', 'hey']
+    match = difflib.get_close_matches(command, greetings, n=1, cutoff=0.5)
+    return bool(match)
