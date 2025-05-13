@@ -74,8 +74,13 @@ def process_command(request):
                    return JsonResponse({'response': random.choice(QUESTIONS)})
            
             question_phrases = ['who is', 'what is', "who's", "what's", 'whats', 'whos']
-            matched = next((phrase for phrase in question_phrases if phrase in get_close_matches(command.split(' ')[0] + ' ' + command.split(' ')[1], question_phrases, n=1, cutoff=0.6)), None)
-
+            words = command.split()
+            if len(words) >= 2:
+                phrase_candidate = words[0] + ' ' + words[1]
+                matched = next((phrase for phrase in question_phrases if phrase in get_close_matches(phrase_candidate, question_phrases, n=1, cutoff=0.6)), None)
+            else:
+                matched = None
+                
             if 'time' in command:
                 time = datetime.datetime.now().strftime('%H:%M:%S')
                 response = f"The current time is {time}"
