@@ -11,6 +11,8 @@ from django.views.decorators.csrf import csrf_exempt
 from django.shortcuts import render
 from django.http import JsonResponse
 import difflib
+from difflib import get_close_matches
+
 
 def home(request):
     return render(request, 'home.html')
@@ -71,7 +73,8 @@ def process_command(request):
                else:
                    return JsonResponse({'response': random.choice(QUESTIONS)})
            
-            
+            question_phrases = ['who is', 'what is', "who's", "what's", 'whats', 'whos']
+            matched = next((phrase for phrase in question_phrases if phrase in get_close_matches(command.split(' ')[0] + ' ' + command.split(' ')[1], question_phrases, n=1, cutoff=0.6)), None)
 
             if 'time' in command:
                 time = datetime.datetime.now().strftime('%H:%M:%S')
@@ -80,11 +83,11 @@ def process_command(request):
             elif 'date' in command:
                 date = datetime.datetime.now().strftime('%B %d, %Y')
                 response = f"Today is {date}"
-
-            elif 'who is' in command or 'what is' in command:
+           
+            elif matched:
                 try:
-                    query = command.replace('who is', '').replace('what is', '').strip()
-                    response = wikipedia.summary(query, sentences=2)
+                    query = command.replace(matched, '').strip()
+                    response = wikipedia.summary(query, sentences=3)
                 except wikipedia.exceptions.DisambiguationError as e:
                     response = f"There are multiple results for '{query}'. Please be more specific."
                 except wikipedia.exceptions.PageError:
