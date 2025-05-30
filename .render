@@ -3,7 +3,8 @@ services:
     name: vi-assistant
     env: python
     buildCommand: "pip install -r requirements.txt"
-    startCommand: "gunicorn jarvis.wsgi"
+    startCommand: "gunicorn jarvis.jarvis.wsgi
+
     envVars:
       - key: DEBUG
         value: "False"
