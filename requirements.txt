@@ -124,5 +124,4 @@ python-dotenv==1.1.0
 pyttsx3==2.98
 pytz==2025.2
 PyYAML==6
-::contentReference[oaicite:29]{index=29}
- 
+  
