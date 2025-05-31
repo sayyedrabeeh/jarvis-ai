@@ -124,4 +124,7 @@ pyttsx3==2.98
 pytz==2025.2
 PyYAML==6
 whitenoise>=6.0.0
-
+wikipedia
+SpeechRecognition
+wolframalpha
+pywhatkit
