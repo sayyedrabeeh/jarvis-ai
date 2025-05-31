@@ -110,8 +110,9 @@ def process_command(request):
                      query = command.replace(search_keyword[0], '').strip()
                   else:
                     query = command.strip()
-                    webbrowser.open(f"https://www.google.com/search?q={query}")
+                    url =f"https://www.google.com/search?q={query}"
                     response = f"Searching for '{query}' on the web."
+                    return JsonResponse({'response': response, 'url': url})
                 except Exception as e:
                       response = f"Error searching: {str(e)}"
 
@@ -149,19 +150,24 @@ def process_command(request):
                         response = "Please mention the song you want to play."
                         return JsonResponse({'response': response})
                     if platform == "spotify":
-                        webbrowser.open_new_tab(f"https://open.spotify.com/search/{song}")
+                        url = f"https://open.spotify.com/search/{song}"
                         response = f"Opening '{song}' on Spotify."
+                        return JsonResponse({'response': response, 'url': url})
+
                     elif platform == "soundcloud":
-                        webbrowser.open_new_tab(f"https://soundcloud.com/search?q={song}")
+                        url = f"https://soundcloud.com/search?q={song}"
                         response = f"Opening '{song}' on SoundCloud."
+                        return JsonResponse({'response': response, 'url': url})
+                       
                     elif platform == "gaana":
-                        webbrowser.open_new_tab(f"https://gaana.com/search/{song}")
+                        url = f"https://gaana.com/search/{song}"
                         response = f"Opening '{song}' on Gaana."
+                        return JsonResponse({'response': response, 'url': url})
                     else:
                          
-                                
-                        webbrowser.open(f"https://www.youtube.com/results?search_query={song}")
+                        url = f"https://www.youtube.com/results?search_query={song}"
                         response = f"Playing '{song}' on YouTube."
+                        return JsonResponse({'response': response, 'url': url})
                         
                 except Exception as e:
                     response = f"Error playing song: {str(e)}"
@@ -175,86 +181,105 @@ def process_command(request):
 
             
             elif 'open youtube' in command:
-                webbrowser.open_new_tab("https://www.youtube.com")
+                url ="https://www.youtube.com"
                 response = "Opening YouTube in a new tab."
-            
+                return JsonResponse({'response': response, 'url': url})
+
             elif 'open google' in command:
                 url = "https://www.google.com"
                 response = "Opening Google in a new tab."
                 return JsonResponse({'response': response, 'url': url})
             
             elif 'open facebook' in command:
-                webbrowser.open_new_tab("https://www.facebook.com")
+                url = "https://www.facebook.com"
                 response = "Opening Facebook in a new tab."
+                return JsonResponse({'response': response, 'url': url})
             
             elif 'open twitter' in command:
-                webbrowser.open_new_tab("https://www.twitter.com")
+                url = "https://www.twitter.com"
                 response = "Opening Twitter in a new tab."
+                return JsonResponse({'response': response, 'url': url})
             
             elif 'open instagram' in command:
-                webbrowser.open_new_tab("https://www.instagram.com")
+                url = "https://www.instagram.com"
                 response = "Opening Instagram in a new tab."
-            
+                return JsonResponse({'response': response, 'url': url})
+
             elif 'open linkedin' in command:
-                webbrowser.open_new_tab("https://www.linkedin.com")
+                url = "https://www.linkedin.com"
                 response = "Opening LinkedIn in a new tab."
+                return JsonResponse({'response': response, 'url': url})
             
             elif 'open github' in command:
-                webbrowser.open_new_tab("https://www.github.com")
+                url = "https://www.github.com"
                 response = "Opening GitHub in a new tab."
-            
+                return JsonResponse({'response': response, 'url': url})
+
             elif 'open reddit' in command:
-                webbrowser.open_new_tab("https://www.reddit.com")
+                url = "https://www.reddit.com"
                 response = "Opening Reddit in a new tab."
-            
+                return JsonResponse({'response': response, 'url': url})
+
             elif 'open stackoverflow' in command:
-                webbrowser.open_new_tab("https://www.stackoverflow.com")
+                url = "https://www.stackoverflow.com"
                 response = "Opening Stack Overflow in a new tab."
-            
+                return JsonResponse({'response': response, 'url': url})
+
             elif 'open pinterest' in command:
-                webbrowser.open_new_tab("https://www.pinterest.com")
+                url = "https://www.pinterest.com"
                 response = "Opening Pinterest in a new tab."
-            
+                return JsonResponse({'response': response, 'url': url})
+
             elif 'open quora' in command:
-                webbrowser.open_new_tab("https://www.quora.com")
+                url = "https://www.quora.com"
                 response = "Opening Quora in a new tab."
+                return JsonResponse({'response': response, 'url': url})
             
             elif 'open wikipedia' in command:
-                webbrowser.open_new_tab("https://www.wikipedia.org")
+                url ="https://www.wikipedia.org"
                 response = "Opening Wikipedia in a new tab."
-            
+                return JsonResponse({'response': response, 'url': url})
+
             elif 'open spotify' in command:
-                webbrowser.open_new_tab("https://www.spotify.com")
+                url = "https://www.spotify.com"
                 response = "Opening Spotify in a new tab."
+                return JsonResponse({'response': response, 'url': url})
             
             elif 'open netflix' in command:
-                webbrowser.open_new_tab("https://www.netflix.com")
+                url = "https://www.netflix.com"
                 response = "Opening Netflix in a new tab."
-            
+                return JsonResponse({'response': response, 'url': url})
+
             elif 'open amazon' in command:
-                webbrowser.open_new_tab("https://www.amazon.com")
+                url = "https://www.amazon.com"
                 response = "Opening Amazon in a new tab."
-            
+                return JsonResponse({'response': response, 'url': url})
+
             elif 'open imdb' in command:
-                webbrowser.open_new_tab("https://www.imdb.com")
+                url = "https://www.imdb.com"
                 response = "Opening IMDb in a new tab."
-            
+                return JsonResponse({'response': response, 'url': url})
+
             elif 'open weather' in command:
-                webbrowser.open_new_tab("https://www.weather.com")
+                url = "https://www.weather.com"
                 response = "Opening Weather.com in a new tab."
+                return JsonResponse({'response': response, 'url': url})
             
             elif 'open news' in command:
-                webbrowser.open_new_tab("https://www.bbc.com/news")
+                url = "https://www.bbc.com/news"
                 response = "Opening the news page in a new tab."
+                return JsonResponse({'response': response, 'url': url})
             
             elif 'open cnn' in command:
-                webbrowser.open_new_tab("https://www.cnn.com")
+                url ="https://www.cnn.com"
                 response = "Opening CNN in a new tab."
-            
+                return JsonResponse({'response': response, 'url': url})
+
             elif 'open reddit' in command:
-                webbrowser.open_new_tab("https://www.reddit.com")
+                url = "https://www.reddit.com"
                 response = "Opening Reddit in a new tab."
-            
+                return JsonResponse({'response': response, 'url': url})
+           
             elif 'thank' in command:
                 response = "You're welcome! Is there anything else I can help you with?"
 
