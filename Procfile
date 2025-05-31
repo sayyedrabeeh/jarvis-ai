@@ -1,1 +1,1 @@
-web: gunicorn jarvis.jarvis.wsgi
+web: gunicorn jarvis.wsgi
