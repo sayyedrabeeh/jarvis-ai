@@ -110,9 +110,9 @@ def process_command(request):
                      query = command.replace(search_keyword[0], '').strip()
                   else:
                     query = command.strip()
-                    url =f"https://www.google.com/search?q={query}"
-                    response = f"Searching for '{query}' on the web."
-                    return JsonResponse({'response': response, 'url': url})
+                  url =f"https://www.google.com/search?q={query}"
+                  response = f"Searching for '{query}' on the web."
+                  return JsonResponse({'response': response, 'url': url})
                 except Exception as e:
                       response = f"Error searching: {str(e)}"
 
