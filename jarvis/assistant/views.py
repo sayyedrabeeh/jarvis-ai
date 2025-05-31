@@ -179,8 +179,9 @@ def process_command(request):
                 response = "Opening YouTube in a new tab."
             
             elif 'open google' in command:
-                webbrowser.open_new_tab("https://www.google.com")
+                url = "https://www.google.com"
                 response = "Opening Google in a new tab."
+                return JsonResponse({'response': response, 'url': url})
             
             elif 'open facebook' in command:
                 webbrowser.open_new_tab("https://www.facebook.com")

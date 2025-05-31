@@ -592,7 +592,9 @@
             
             conversationHistory.appendChild(assistantMessageElement);
             conversationHistory.scrollTop = conversationHistory.scrollHeight;
-            
+            if (data.url) {
+                 window.open(data.url, "_blank");
+               }
             // Handle follow-up suggestions
             if (command.toLowerCase().includes('random') || 
                 command.toLowerCase().includes('talk') || 
