@@ -176,7 +176,7 @@ def process_command(request):
                                 else:
                                    webbrowser.open(f"https://www.youtube.com/results?search_query={song}")
                                 response = f"Playing '{song}' on YouTube."
-                           except Exception as e:
+                        except Exception as e:
                                response = f"Error playing song: {str(e)}"
                 except Exception as e:
                     response = f"Error playing song: {str(e)}"
