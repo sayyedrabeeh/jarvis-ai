@@ -171,11 +171,11 @@ def process_command(request):
                         response = f"Opening '{song}' on Gaana."
                     else:
                         try:
-                               if PYWHATKIT_AVAILABLE:
+                                if PYWHATKIT_AVAILABLE:
                                    pywhatkit.playonyt(song)
                                 else:
                                    webbrowser.open(f"https://www.youtube.com/results?search_query={song}")
-                               response = f"Playing '{song}' on YouTube."
+                                response = f"Playing '{song}' on YouTube."
                            except Exception as e:
                                response = f"Error playing song: {str(e)}"
                 except Exception as e:
