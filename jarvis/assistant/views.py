@@ -1,7 +1,6 @@
 import datetime
 import wikipedia
 import webbrowser
-import pywhatkit
 import requests
 import pyjokes
 import wolframalpha
@@ -16,13 +15,7 @@ from difflib import get_close_matches
 
 
 
-try:
-    import pywhatkit
-    PYWHATKIT_AVAILABLE = True
-except Exception as e:
-    print("pywhatkit not available:", e)
-    PYWHATKIT_AVAILABLE = False
-
+ 
 def home(request):
     return render(request, 'home.html')
 
@@ -116,12 +109,7 @@ def process_command(request):
                   if search_keyword:
                      query = command.replace(search_keyword[0], '').strip()
                   else:
-                     query = command.strip()
-         
-                  
-                  if PYWHATKIT_AVAILABLE:
-                    pywhatkit.search(query)
-                  else:
+                    query = command.strip()
                     webbrowser.open(f"https://www.google.com/search?q={query}")
                     response = f"Searching for '{query}' on the web."
                 except Exception as e:
@@ -170,14 +158,11 @@ def process_command(request):
                         webbrowser.open_new_tab(f"https://gaana.com/search/{song}")
                         response = f"Opening '{song}' on Gaana."
                     else:
-                        try:
-                                if PYWHATKIT_AVAILABLE:
-                                   pywhatkit.playonyt(song)
-                                else:
-                                   webbrowser.open(f"https://www.youtube.com/results?search_query={song}")
-                                response = f"Playing '{song}' on YouTube."
-                        except Exception as e:
-                               response = f"Error playing song: {str(e)}"
+                         
+                                
+                        webbrowser.open(f"https://www.youtube.com/results?search_query={song}")
+                        response = f"Playing '{song}' on YouTube."
+                        
                 except Exception as e:
                     response = f"Error playing song: {str(e)}"
             

@@ -127,4 +127,4 @@ whitenoise>=6.0.0
 wikipedia
 SpeechRecognition
 wolframalpha
-pywhatkit
+ 
