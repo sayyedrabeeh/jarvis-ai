@@ -1,4 +1,7 @@
- # 🤖 VI ASSISTANT- Interactive Web Assistant
+<h1 align="center">🤖 VI ASSISTANT</h1>
+
+ 
+ ## VI ASSISTANT- Interactive Web Assistant
 
 
 This project is  Django-powered virtual assistant web application that provides users with an intuitive conversational interface to perform various tasks, access information, and engage in natural dialogue.  integrated web services, VI  offers a seamless experience for users seeking information or assistance through simple conversation.
