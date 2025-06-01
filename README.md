@@ -1,7 +1,11 @@
  # 🤖 VI ASSISTANT- Interactive Web Assistant
 
 
-This project is  Django-powered virtual assistant web application that provides users with an intuitive conversational interface to perform various tasks, access information, and engage in natural dialogue.  integrated web services, VI  offers a seamless experience for users seeking information or assistance through simple conversation.If you find this repository helpful or interesting, please consider giving it a star⭐ and Follow Me for cool Projects
+This project is  Django-powered virtual assistant web application that provides users with an intuitive conversational interface to perform various tasks, access information, and engage in natural dialogue.  integrated web services, VI  offers a seamless experience for users seeking information or assistance through simple conversation.
+✅ No external APIs — built entirely using Python libraries like pywhatkit, wikipedia, pyjokes, and more.
+No API keys, no complex setup — just pure Python functionality under the hood.
+
+If you find this repository helpful or interesting, please consider giving it a star⭐ and Follow Me for cool Projects
 
 ### [⭐ **Star this project**](https://github.com/sayyedrabeeh/artist)
 ### [👤 **Follow Me**](https://github.com/sayyedrabeeh)
