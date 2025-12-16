@@ -7,246 +7,814 @@
     <title>VI Assistant</title>
     <link rel="icon" href="data:image/svg+xml,
 <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'>
-  <text y='20' font-size='20'>🤖</text>
+  <circle cx='12' cy='12' r='10' fill='%233b82f6'/>
 </svg>">
-
-
-
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
-    <style>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+        <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Roboto', sans-serif;
         }
 
         body {
-            min-height: 100vh;
-            background: linear-gradient(135deg, #2c3e50, #3498db);
+            font-family: 'Inter', sans-serif;
+            background: #000000;
+            color: #ffffff;
+            scroll-behavior: smooth;
+        }
+
+        /* Sidebar Navigation */
+        .sidebar {
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 280px;
+            height: 100vh;
+            background: #0a0a0a;
+            border-right: 1px solid #1f1f1f;
+            padding: 40px 30px;
+            z-index: 1000;
+        }
+
+        .logo-section {
+            margin-bottom: 50px;
+        }
+
+        .logo-title {
+            font-size: 1.5em;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 8px;
+        }
+
+        .logo-subtitle {
+            font-size: 0.85em;
+            color: #666666;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .nav-menu {
+            list-style: none;
+        }
+
+        .nav-item {
+            margin-bottom: 8px;
+        }
+
+        .nav-link {
             display: flex;
-            justify-content: center;
             align-items: center;
-            padding: 20px;
-        }
-
-        .container {
-            width: 100%;
-            max-width: 1100px;
-            background: rgba(255, 255, 255, 0.95);
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 15px 25px rgba(0,0,0,0.2);
-            padding: 40px;
-        }
-
-        .assistant-header {
-            text-align: center;
-            margin-bottom: 40px;
-        }
-
-        .assistant-header h1 {
-            font-size: 2.5em;
-            margin-bottom: 15px;
-            color: #2c3e50;
-        }
-
-        .assistant-header p {
-            font-size: 1.1em;
-            color: #7f8c8d;
-        }
-
-        .welcome-content {
-            text-align: center;
-            margin-bottom: 40px;
-        }
-
-        .welcome-content h2 {
-            font-size: 2em;
-            margin-bottom: 20px;
-            color: #2c3e50;
-        }
-
-        .welcome-content p {
-            font-size: 1.1em;
-            line-height: 1.6;
-            margin-bottom: 30px;
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
-            color: #7f8c8d;
-        }
-
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 25px;
-            margin-bottom: 40px;
-        }
-
-        .feature-item {
-            background: #f8f9fa;
-            padding: 25px;
-            border-radius: 10px;
-            text-align: center;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-        }
-
-        .feature-item:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-        }
-
-        .feature-icon {
-            font-size: 2.5em;
-            margin-bottom: 15px;
-            color: #3498db;
-        }
-
-        .feature-item h3 {
-            font-size: 1.3em;
-            margin-bottom: 10px;
-            color: #2c3e50;
-        }
-
-        .feature-item p {
+            gap: 12px;
+            padding: 12px 16px;
+            color: #999999;
+            text-decoration: none;
+            border-radius: 6px;
+            transition: all 0.2s ease;
             font-size: 0.95em;
-            color: #7f8c8d;
-            line-height: 1.5;
+        }
+
+        .nav-link:hover {
+            background: #1a1a1a;
+            color: #ffffff;
+        }
+
+        .nav-link.active {
+            background: #1a1a1a;
+            color: #ffffff;
+        }
+
+        .nav-icon {
+            width: 18px;
+            height: 18px;
+        }
+
+        .status-section {
+            position: absolute;
+            bottom: 40px;
+            left: 30px;
+            right: 30px;
         }
 
         .status-indicator {
-            display: inline-block;
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            margin-right: 10px;
-            background: #2ecc71;
-            box-shadow: 0 0 10px rgba(46, 204, 113, 0.5);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 16px;
+            background: rgba(16, 185, 129, 0.1);
+            border: 1px solid rgba(16, 185, 129, 0.2);
+            border-radius: 6px;
+            font-size: 0.85em;
+            color: #10b981;
         }
 
-        .disclaimer {
-            background: #f8f9fa;
-            border-radius: 10px;
-            padding: 20px;
-            margin: 0 auto 30px;
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            background: #10b981;
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.4; }
+        }
+
+        /* Main Content Area */
+        .main-content {
+            margin-left: 280px;
+            min-height: 100vh;
+        }
+
+        /* Hero Section - Full Width Banner */
+        .hero-banner {
+            background: linear-gradient(135deg, #1a1a1a 0%, #0a0a0a 100%);
+            padding: 80px 60px;
+            border-bottom: 1px solid #1f1f1f;
+        }
+
+        .hero-content {
             max-width: 800px;
         }
 
-        .disclaimer h3 {
-            font-size: 1.3em;
-            margin-bottom: 10px;
-            color: #2c3e50;
+        .hero-title {
+            font-size: 3.5em;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, #ffffff, #666666);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
-        .disclaimer p {
-            font-size: 1em;
-            color: #7f8c8d;
+        .hero-description {
+            font-size: 1.2em;
+            color: #999999;
             line-height: 1.6;
+            margin-bottom: 35px;
         }
 
         .cta-button {
             display: inline-block;
-            padding: 15px 40px;
-            background: #3498db;
-            color: white;
+            padding: 16px 40px;
+            background: #2563eb;
+            color: #ffffff;
             text-decoration: none;
-            border-radius: 8px;
-            font-size: 1.2em;
-            font-weight: 500;
-            transition: background 0.3s ease, transform 0.3s ease;
-            box-shadow: 0 5px 15px rgba(52, 152, 219, 0.3);
-            margin-top: 20px;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 1em;
+            transition: all 0.3s ease;
         }
 
         .cta-button:hover {
-            background: #2980b9;
-            transform: translateY(-5px);
-            box-shadow: 0 8px 20px rgba(52, 152, 219, 0.4);
+            background: #1d4ed8;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(37, 99, 235, 0.3);
         }
 
-        .footer {
+        /* Two Column Layout */
+        .content-section {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr;
+            gap: 40px;
+            padding: 60px;
+        }
+
+        .content-main {
+            padding-right: 40px;
+        }
+
+        .section-title {
+            font-size: 2em;
+            font-weight: 700;
+            margin-bottom: 30px;
+            color: #ffffff;
+        }
+
+        .feature-list {
+            list-style: none;
+        }
+
+        .feature-item {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 30px;
+            padding-bottom: 30px;
+            border-bottom: 1px solid #1f1f1f;
+        }
+
+        .feature-item:last-child {
+            border-bottom: none;
+        }
+
+        .feature-number {
+            flex-shrink: 0;
+            width: 40px;
+            height: 40px;
+            background: #1a1a1a;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            color: #2563eb;
+        }
+
+        .feature-content h3 {
+            font-size: 1.2em;
+            margin-bottom: 8px;
+            color: #ffffff;
+        }
+
+        .feature-content p {
+            color: #999999;
+            line-height: 1.6;
+        }
+
+        /* Sidebar Content */
+        .content-sidebar {
+            padding-left: 40px;
+            border-left: 1px solid #1f1f1f;
+        }
+
+        .info-card {
+            background: #0a0a0a;
+            border: 1px solid #1f1f1f;
+            border-radius: 8px;
+            padding: 30px;
+            margin-bottom: 25px;
+        }
+
+        .info-card-title {
+            font-size: 1.1em;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: #ffffff;
+        }
+
+        .info-card-text {
+            font-size: 0.95em;
+            color: #999999;
+            line-height: 1.6;
+        }
+
+        .warning-card {
+            background: rgba(245, 158, 11, 0.05);
+            border: 1px solid rgba(245, 158, 11, 0.2);
+            border-left: 3px solid #f59e0b;
+        }
+
+        .warning-card .info-card-title {
+            color: #f59e0b;
+        }
+
+        /* Stats Section */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+            padding: 60px;
+            background: #0a0a0a;
+            border-top: 1px solid #1f1f1f;
+        }
+
+        .stat-box {
             text-align: center;
-            margin-top: 40px;
-            color: #7f8c8d;
+            padding: 30px;
+        }
+
+        .stat-value {
+            font-size: 2.5em;
+            font-weight: 700;
+            color: #2563eb;
+            margin-bottom: 10px;
+        }
+
+        .stat-label {
+            font-size: 0.9em;
+            color: #666666;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Features Section Styles */
+        .features-section {
+            background: #000000;
+            padding: 80px 60px;
+            border-top: 1px solid #1f1f1f;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 40px;
+            margin-top: 50px;
+        }
+
+        .feature-card {
+            background: #0a0a0a;
+            border: 1px solid #1f1f1f;
+            border-radius: 12px;
+            padding: 40px;
+            transition: all 0.3s ease;
+        }
+
+        .feature-card:hover {
+            border-color: #2563eb;
+            transform: translateY(-5px);
+        }
+
+        .feature-icon {
+            width: 50px;
+            height: 50px;
+            background: rgba(37, 99, 235, 0.1);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .feature-icon svg {
+            width: 24px;
+            height: 24px;
+            stroke: #2563eb;
+        }
+
+        .feature-card h3 {
+            font-size: 1.3em;
+            margin-bottom: 15px;
+            color: #ffffff;
+        }
+
+        .feature-card p {
+            color: #999999;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .feature-list-items {
+            list-style: none;
+            margin-top: 15px;
+        }
+
+        .feature-list-items li {
+            color: #666666;
+            padding: 8px 0;
+            padding-left: 25px;
+            position: relative;
+        }
+
+        .feature-list-items li:before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: #2563eb;
+        }
+
+        /* Documentation Section */
+        .documentation-section {
+            background: #0a0a0a;
+            padding: 80px 60px;
+            border-top: 1px solid #1f1f1f;
+        }
+
+        .doc-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .doc-card {
+            background: #000000;
+            border: 1px solid #1f1f1f;
+            border-radius: 12px;
+            padding: 35px;
+            transition: all 0.3s ease;
+        }
+
+        .doc-card:hover {
+            border-color: #2563eb;
+        }
+
+        .doc-card h3 {
+            font-size: 1.2em;
+            margin-bottom: 15px;
+            color: #ffffff;
+        }
+
+        .doc-card p {
+            color: #999999;
+            line-height: 1.6;
+            font-size: 0.95em;
+        }
+
+        .doc-link {
+            display: inline-block;
+            margin-top: 15px;
+            color: #2563eb;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+
+        .doc-link:hover {
+            color: #1d4ed8;
+        }
+
+        /* Support Section */
+        .support-section {
+            background: #000000;
+            padding: 80px 60px;
+            border-top: 1px solid #1f1f1f;
+        }
+
+        .support-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .support-description {
+            color: #999999;
+            font-size: 1.1em;
+            line-height: 1.6;
+            margin: 30px 0 40px;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .contact-card {
+            background: #0a0a0a;
+            border: 1px solid #1f1f1f;
+            border-radius: 12px;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .contact-card h4 {
+            font-size: 1.1em;
+            margin-bottom: 10px;
+            color: #ffffff;
+        }
+
+        .contact-card p {
+            color: #2563eb;
+            font-weight: 500;
+        }
+
+        /* Footer */
+        .footer {
+            margin-left: 280px;
+            padding: 40px 60px;
+            border-top: 1px solid #1f1f1f;
+            color: #666666;
             font-size: 0.9em;
         }
 
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .footer-link {
+            color: #666666;
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        .footer-link:hover {
+            color: #ffffff;
+        }
+
+        @media (max-width: 1024px) {
+            .sidebar {
+                width: 220px;
+            }
+
+            .main-content {
+                margin-left: 220px;
+            }
+
+            .footer {
+                margin-left: 220px;
+            }
+
+            .content-section {
+                grid-template-columns: 1fr;
+            }
+
+            .content-sidebar {
+                padding-left: 0;
+                border-left: none;
+                border-top: 1px solid #1f1f1f;
+                padding-top: 40px;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .doc-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
         @media (max-width: 768px) {
-            .container {
-                padding: 30px 20px;
+            .sidebar {
+                width: 100%;
+                height: auto;
+                position: relative;
+                border-right: none;
+                border-bottom: 1px solid #1f1f1f;
             }
-            
-            .assistant-header h1 {
-                font-size: 2em;
+
+            .status-section {
+                position: relative;
+                bottom: auto;
+                left: auto;
+                right: auto;
+                margin-top: 30px;
             }
-            
-            .welcome-content h2 {
-                font-size: 1.7em;
+
+            .main-content {
+                margin-left: 0;
+            }
+
+            .footer {
+                margin-left: 0;
+            }
+
+            .hero-banner {
+                padding: 50px 30px;
+            }
+
+            .hero-title {
+                font-size: 2.2em;
+            }
+
+            .content-section {
+                padding: 40px 30px;
+            }
+
+            .stats-grid {
+                padding: 40px 30px;
+            }
+
+            .features-section,
+            .documentation-section,
+            .support-section {
+                padding: 50px 30px;
+            }
+
+            .doc-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                gap: 20px;
+                text-align: center;
+            }
+
+            .footer-links {
+                flex-direction: column;
+                gap: 15px;
             }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="assistant-header">
-            <h1>VI Assistant</h1>
-            <p><span class="status-indicator"></span>Online and Ready to Help</p>
+    <aside class="sidebar">
+        <div class="logo-section">
+            <div class="logo-title">VI ASSISTANT</div>
+            <div class="logo-subtitle">AI Platform</div>
         </div>
-
-        <div class="welcome-content">
-             
-            <p>Get instant answers, assistance, and information with our powerful AI system. Whether you need help with research, quick facts, or just someone to chat with, we've got you covered.</p>
-        </div>
-        
-        <div class="features-grid">
-            <div class="feature-item">
-                <div class="feature-icon">🔍</div>
-                <h3>Instant Answers</h3>
-                <p>Get immediate responses to your questions on any topic</p>
+        <nav>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="#" class="nav-link active">
+                        <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+                        </svg>
+                        Home
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#features" class="nav-link">
+                        <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+                            <path d="M2 17l10 5 10-5"/>
+                            <path d="M2 12l10 5 10-5"/>
+                        </svg>
+                        Features
+                    </a>
+                </li>
+                
+                
+            </ul>
+        </nav>
+        <div class="status-section">
+            <div class="status-indicator">
+                <span class="status-dot"></span>
+                <span>System Online</span>
             </div>
-            <div class="feature-item">
-                <div class="feature-icon">🧠</div>
-                <h3>Smart Assistance</h3>
-                <p>Let AI help with research, summaries, and information gathering</p>
+        </div>
+    </aside>
+
+    <main class="main-content">
+        <section class="hero-banner">
+            <div class="hero-content">
+                <h1 class="hero-title">Enterprise AI Assistant Platform</h1>
+                <p class="hero-description">Advanced artificial intelligence system designed for professional environments. Instant query processing with enterprise-grade accuracy and reliability.</p>
+                <a href="{% url 'process_command' %}" class="cta-button">Access Platform</a>
             </div>
-          <div class="feature-item">
-    <div class="feature-icon">💬</div>
-    <h3>Prompt-Based Interaction</h3>
-    <p>Ask questions or give commands one at a time — context is not remembered between responses.</p>
-</div>
+        </section>
+        <section class="content-section">
+            <div class="content-main">
+                <h2 class="section-title">Platform Capabilities</h2>
+                <ul class="feature-list">
+                    <li class="feature-item">
+                        <div class="feature-number">01</div>
+                        <div class="feature-content">
+                            <h3>Real-Time Query Processing</h3>
+                            <p>Advanced natural language understanding delivers immediate, accurate responses across all knowledge domains with industry-leading precision.</p>
+                        </div>
+                    </li>
+                    <li class="feature-item">
+                        <div class="feature-number">02</div>
+                        <div class="feature-content">
+                            <h3>Intelligent Analysis</h3>
+                            <p>Sophisticated AI algorithms provide comprehensive research assistance, data synthesis, and information retrieval for complex queries.</p>
+                        </div>
+                    </li>
+                    <li class="feature-item">
+                        <div class="feature-number">03</div>
+                        <div class="feature-content">
+                            <h3>Streamlined Interface</h3>
+                            <p>Optimized single-prompt architecture ensures efficient interaction without unnecessary complexity or conversational overhead.</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="content-sidebar">
+                <div class="info-card">
+                    <h3 class="info-card-title">Getting Started</h3>
+                    <p class="info-card-text">Click "Access Platform" to begin using the VI Assistant. Enter your query and receive instant, professional-grade responses.</p>
+                </div>
+                <div class="info-card warning-card">
+                    <h3 class="info-card-title">Important Notice</h3>
+                    <p class="info-card-text">This system processes individual prompts independently. Conversational context is not maintained between interactions.</p>
+                </div>
 
-        </div>
-        
-        <div class="disclaimer">
-            <h3>Disclaimer</h3>
-            <p>This AI assistant is designed to respond to individual prompts and is not a fully conversational AI. 
-            If you answer a question it asked earlier, the system may not understand the context and will treat your reply as a new, unrelated prompt.</p>
-        </div>
-        
-        <div style="text-align: center;">
-            <a href="{% url 'process_command' %}" class="cta-button">Start Chatting Now</a>
-        </div>
+                <div class="info-card">
+                    <h3 class="info-card-title">System Requirements</h3>
+                    <p class="info-card-text">Modern web browser with JavaScript enabled. Optimized for desktop and mobile devices.</p>
+                </div>
+            </div>
+        </section>
+       
+                <section id="features" class="features-section">
+            <h2 class="section-title">Advanced Features</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+                            <polyline points="3.27 6.96 12 12.01 20.73 6.96"/>
+                            <line x1="12" y1="22.08" x2="12" y2="12"/>
+                        </svg>
+                    </div>
+                    <h3>Natural Language Processing</h3>
+                    <p>Advanced AI-powered understanding of complex queries with multi-language support and context-aware interpretation.</p>
+                    <ul class="feature-list-items">
+                        <li>Multi-language support</li>
+                        <li>Context understanding</li>
+                        <li>Query refinement</li>
+                        <li>Semantic analysis</li>
+                    </ul>
+                </div>
 
-        <div class="footer">
-            <p>© 2025 AI Text Assistant | Privacy Policy | Terms of Service</p>
-        </div>
-    </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+                            <line x1="9" y1="9" x2="15" y2="9"/>
+                            <line x1="9" y1="15" x2="15" y2="15"/>
+                        </svg>
+                    </div>
+                    <h3>Knowledge Domains</h3>
+                    <p>Comprehensive expertise across multiple fields with real-time data access and intelligent information synthesis.</p>
+                    <ul class="feature-list-items">
+                        <li>Technical documentation</li>
+                        <li>Research assistance</li>
+                        <li>Data interpretation</li>
+                        <li>Content generation</li>
+                    </ul>
+                </div>
 
-    <script>
-        // Simple animation for the status indicator
-        const statusIndicator = document.querySelector('.status-indicator');
-        
-        function pulseAnimation() {
-            statusIndicator.style.opacity = 0.6;
-            setTimeout(() => {
-                statusIndicator.style.opacity = 1;
-                setTimeout(pulseAnimation, 2000);
-            }, 1000);
-        }
-        
-        pulseAnimation();
-    </script>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                        </svg>
+                    </div>
+                    <h3>Security & Privacy</h3>
+                    <p>Enterprise-grade security protocols ensuring data protection and compliance with industry standards.</p>
+                    <ul class="feature-list-items">
+                        <li>End-to-end encryption</li>
+                        <li>Data privacy compliance</li>
+                        <li>Secure authentication</li>
+                        <li>Audit logging</li>
+                    </ul>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
+                        </svg>
+                    </div>
+                    <h3>Performance & Reliability</h3>
+                    <p>High-speed processing with guaranteed uptime and consistent accuracy across all operations.</p>
+                    <ul class="feature-list-items">
+                        <li>Sub-second response time</li>
+                        <li>99.9% uptime guarantee</li>
+                        <li>Load balancing</li>
+                        <li>Auto-scaling</li>
+                    </ul>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="3"/>
+                            <path d="M12 1v6m0 6v6M5.64 5.64l4.24 4.24m4.24 4.24l4.24 4.24M1 12h6m6 0h6M5.64 18.36l4.24-4.24m4.24-4.24l4.24-4.24"/>
+                        </svg>
+                    </div>
+                    <h3>Integration Capabilities</h3>
+                    <p>Seamless integration with existing systems through robust API and webhook support.</p>
+                    <ul class="feature-list-items">
+                        <li>RESTful API access</li>
+                        <li>Webhook support</li>
+                        <li>Third-party connections</li>
+                        <li>Multiple export formats</li>
+                    </ul>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <line x1="12" y1="1" x2="12" y2="23"/>
+                            <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+                        </svg>
+                    </div>
+                    <h3>Analytics & Insights</h3>
+                    <p>Comprehensive analytics dashboard with detailed metrics and performance insights.</p>
+                    <ul class="feature-list-items">
+                        <li>Usage statistics</li>
+                        <li>Performance metrics</li>
+                        <li>Custom reports</li>
+                        <li>Data visualization</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+ 
+     
+    </main>
+    <footer class="footer">
+        <div class="footer-content">
+            <p>© 2025 VI Assistant. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="#" class="footer-link">Privacy Policy</a>
+                <a href="#" class="footer-link">Terms of Service</a>
+                <a href="#" class="footer-link">Contact</a>
+            </div>
+        </div>
+    </footer>
 </body>
 </html>
