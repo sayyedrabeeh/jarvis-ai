@@ -10,7 +10,7 @@
   <circle cx='12' cy='12' r='10' fill='%233b82f6'/>
 </svg>">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-        <style>
+    <style>
         * {
             margin: 0;
             padding: 0;
@@ -271,35 +271,6 @@
             color: #f59e0b;
         }
 
-        /* Stats Section */
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 25px;
-            padding: 60px;
-            background: #0a0a0a;
-            border-top: 1px solid #1f1f1f;
-        }
-
-        .stat-box {
-            text-align: center;
-            padding: 30px;
-        }
-
-        .stat-value {
-            font-size: 2.5em;
-            font-weight: 700;
-            color: #2563eb;
-            margin-bottom: 10px;
-        }
-
-        .stat-label {
-            font-size: 0.9em;
-            color: #666666;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
         /* Features Section Styles */
         .features-section {
             background: #000000;
@@ -375,103 +346,6 @@
             color: #2563eb;
         }
 
-        /* Documentation Section */
-        .documentation-section {
-            background: #0a0a0a;
-            padding: 80px 60px;
-            border-top: 1px solid #1f1f1f;
-        }
-
-        .doc-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 30px;
-            margin-top: 50px;
-        }
-
-        .doc-card {
-            background: #000000;
-            border: 1px solid #1f1f1f;
-            border-radius: 12px;
-            padding: 35px;
-            transition: all 0.3s ease;
-        }
-
-        .doc-card:hover {
-            border-color: #2563eb;
-        }
-
-        .doc-card h3 {
-            font-size: 1.2em;
-            margin-bottom: 15px;
-            color: #ffffff;
-        }
-
-        .doc-card p {
-            color: #999999;
-            line-height: 1.6;
-            font-size: 0.95em;
-        }
-
-        .doc-link {
-            display: inline-block;
-            margin-top: 15px;
-            color: #2563eb;
-            text-decoration: none;
-            font-weight: 500;
-            transition: all 0.2s ease;
-        }
-
-        .doc-link:hover {
-            color: #1d4ed8;
-        }
-
-        /* Support Section */
-        .support-section {
-            background: #000000;
-            padding: 80px 60px;
-            border-top: 1px solid #1f1f1f;
-        }
-
-        .support-content {
-            max-width: 800px;
-            margin: 0 auto;
-            text-align: center;
-        }
-
-        .support-description {
-            color: #999999;
-            font-size: 1.1em;
-            line-height: 1.6;
-            margin: 30px 0 40px;
-        }
-
-        .contact-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 30px;
-            margin-top: 50px;
-        }
-
-        .contact-card {
-            background: #0a0a0a;
-            border: 1px solid #1f1f1f;
-            border-radius: 12px;
-            padding: 30px;
-            text-align: center;
-        }
-
-        .contact-card h4 {
-            font-size: 1.1em;
-            margin-bottom: 10px;
-            color: #ffffff;
-        }
-
-        .contact-card p {
-            color: #2563eb;
-            font-weight: 500;
-        }
-
         /* Footer */
         .footer {
             margin-left: 280px;
@@ -526,19 +400,7 @@
                 padding-top: 40px;
             }
 
-            .stats-grid {
-                grid-template-columns: 1fr;
-            }
-
             .features-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .doc-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .contact-grid {
                 grid-template-columns: 1fr;
             }
         }
@@ -580,18 +442,8 @@
                 padding: 40px 30px;
             }
 
-            .stats-grid {
-                padding: 40px 30px;
-            }
-
-            .features-section,
-            .documentation-section,
-            .support-section {
+            .features-section {
                 padding: 50px 30px;
-            }
-
-            .doc-grid {
-                grid-template-columns: 1fr;
             }
 
             .footer-content {
@@ -611,7 +463,7 @@
     <aside class="sidebar">
         <div class="logo-section">
             <div class="logo-title">VI ASSISTANT</div>
-            <div class="logo-subtitle">AI Platform</div>
+            <div class="logo-subtitle">Web Assistant</div>
         </div>
         <nav>
             <ul class="nav-menu">
@@ -633,8 +485,6 @@
                         Features
                     </a>
                 </li>
-                
-                
             </ul>
         </nav>
         <div class="status-section">
@@ -648,57 +498,58 @@
     <main class="main-content">
         <section class="hero-banner">
             <div class="hero-content">
-                <h1 class="hero-title">Enterprise AI Assistant Platform</h1>
-                <p class="hero-description">Advanced artificial intelligence system designed for professional environments. Instant query processing with enterprise-grade accuracy and reliability.</p>
+                <h1 class="hero-title">VI Assistant - Your Interactive Web Assistant</h1>
+                <p class="hero-description">Django-powered virtual assistant that plays music across YouTube, Spotify, and more, answers questions from Wikipedia, searches the web, tells jokes, and opens popular websites—all without external APIs.</p>
                 <a href="{% url 'process_command' %}" class="cta-button">Access Platform</a>
             </div>
         </section>
+
         <section class="content-section">
             <div class="content-main">
-                <h2 class="section-title">Platform Capabilities</h2>
+                <h2 class="section-title">What VI Assistant Can Do</h2>
                 <ul class="feature-list">
                     <li class="feature-item">
                         <div class="feature-number">01</div>
                         <div class="feature-content">
-                            <h3>Real-Time Query Processing</h3>
-                            <p>Advanced natural language understanding delivers immediate, accurate responses across all knowledge domains with industry-leading precision.</p>
+                            <h3>Multi-Platform Music Playback</h3>
+                            <p>Play your favorite songs on YouTube, Spotify, SoundCloud, or Gaana. Just tell VI what you want to hear and which platform to use.</p>
                         </div>
                     </li>
                     <li class="feature-item">
                         <div class="feature-number">02</div>
                         <div class="feature-content">
-                            <h3>Intelligent Analysis</h3>
-                            <p>Sophisticated AI algorithms provide comprehensive research assistance, data synthesis, and information retrieval for complex queries.</p>
+                            <h3>Wikipedia Knowledge Base</h3>
+                            <p>Get quick answers to "who is" and "what is" questions using Wikipedia's extensive database of information.</p>
                         </div>
                     </li>
                     <li class="feature-item">
                         <div class="feature-number">03</div>
                         <div class="feature-content">
-                            <h3>Streamlined Interface</h3>
-                            <p>Optimized single-prompt architecture ensures efficient interaction without unnecessary complexity or conversational overhead.</p>
+                            <h3>Web Navigation & Search</h3>
+                            <p>Open popular websites instantly or search the web. Access social media, entertainment platforms, shopping sites, and more with simple commands.</p>
                         </div>
                     </li>
                 </ul>
             </div>
+
             <div class="content-sidebar">
                 <div class="info-card">
                     <h3 class="info-card-title">Getting Started</h3>
-                    <p class="info-card-text">Click "Access Platform" to begin using the VI Assistant. Enter your query and receive instant, professional-grade responses.</p>
+                    <p class="info-card-text">Click "Access Platform" to start using VI Assistant. Try commands like "Play Bohemian Rhapsody on Spotify" or "What time is it?"</p>
                 </div>
                 <div class="info-card warning-card">
-                    <h3 class="info-card-title">Important Notice</h3>
-                    <p class="info-card-text">This system processes individual prompts independently. Conversational context is not maintained between interactions.</p>
+                    <h3 class="info-card-title">No APIs Required</h3>
+                    <p class="info-card-text">VI Assistant is built entirely using Python libraries like pywhatkit, wikipedia, and pyjokes. No API keys or complex setup needed!</p>
                 </div>
-
                 <div class="info-card">
-                    <h3 class="info-card-title">System Requirements</h3>
-                    <p class="info-card-text">Modern web browser with JavaScript enabled. Optimized for desktop and mobile devices.</p>
+                    <h3 class="info-card-title">Open Source</h3>
+                    <p class="info-card-text">This project is open source and available on GitHub. Contributions are welcome!</p>
                 </div>
             </div>
         </section>
-       
-                <section id="features" class="features-section">
-            <h2 class="section-title">Advanced Features</h2>
+
+        <section id="features" class="features-section">
+            <h2 class="section-title">Core Features</h2>
             <div class="features-grid">
                 <div class="feature-card">
                     <div class="feature-icon">
@@ -708,13 +559,47 @@
                             <line x1="12" y1="22.08" x2="12" y2="12"/>
                         </svg>
                     </div>
-                    <h3>Natural Language Processing</h3>
-                    <p>Advanced AI-powered understanding of complex queries with multi-language support and context-aware interpretation.</p>
+                    <h3>Conversational Intelligence</h3>
+                    <p>Engage in natural conversation with dynamic greetings, smart small talk, and thoughtful responses that keep interactions fresh and engaging.</p>
                     <ul class="feature-list-items">
-                        <li>Multi-language support</li>
-                        <li>Context understanding</li>
-                        <li>Query refinement</li>
-                        <li>Semantic analysis</li>
+                        <li>Friendly greetings & farewells</li>
+                        <li>Interesting conversation starters</li>
+                        <li>Time and date information</li>
+                        <li>Idle check-ins</li>
+                    </ul>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"/>
+                            <polyline points="12 6 12 12 16 14"/>
+                        </svg>
+                    </div>
+                    <h3>Music & Entertainment</h3>
+                    <p>Play music across multiple platforms and enjoy humor on demand. VI intelligently routes your media requests to the right platform.</p>
+                    <ul class="feature-list-items">
+                        <li>YouTube playback</li>
+                        <li>Spotify integration</li>
+                        <li>SoundCloud & Gaana support</li>
+                        <li>Jokes and humor</li>
+                    </ul>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="11" cy="11" r="8"/>
+                            <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+                        </svg>
+                    </div>
+                    <h3>Information Retrieval</h3>
+                    <p>Access Wikipedia's knowledge base for factual answers and search the web for any information you need.</p>
+                    <ul class="feature-list-items">
+                        <li>Wikipedia integration</li>
+                        <li>Web search capability</li>
+                        <li>Quick fact lookup</li>
+                        <li>Educational content</li>
                     </ul>
                 </div>
 
@@ -722,17 +607,35 @@
                     <div class="feature-icon">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
-                            <line x1="9" y1="9" x2="15" y2="9"/>
+                            <line x1="3" y1="9" x2="21" y2="9"/>
+                        </svg>
+                    </div>
+                    <h3>Quick Website Access</h3>
+                    <p>Open popular websites instantly with simple commands. Access social media, entertainment, shopping, and utility sites in seconds.</p>
+                    <ul class="feature-list-items">
+                        <li>Social media (Facebook, Twitter, Instagram)</li>
+                        <li>Entertainment (YouTube, Netflix)</li>
+                        <li>Shopping (Amazon)</li>
+                        <li>Utilities (GitHub, Weather, News)</li>
+                    </ul>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                            <polyline points="14 2 14 8 20 8"/>
+                            <line x1="12" y1="18" x2="12" y2="12"/>
                             <line x1="9" y1="15" x2="15" y2="15"/>
                         </svg>
                     </div>
-                    <h3>Knowledge Domains</h3>
-                    <p>Comprehensive expertise across multiple fields with real-time data access and intelligent information synthesis.</p>
+                    <h3>Built with Python</h3>
+                    <p>Powered by Django and pure Python libraries—no external APIs or complex configurations required.</p>
                     <ul class="feature-list-items">
-                        <li>Technical documentation</li>
-                        <li>Research assistance</li>
-                        <li>Data interpretation</li>
-                        <li>Content generation</li>
+                        <li>pywhatkit for web automation</li>
+                        <li>wikipedia for knowledge</li>
+                        <li>pyjokes for humor</li>
+                        <li>Simple, clean architecture</li>
                     </ul>
                 </div>
 
@@ -742,77 +645,26 @@
                             <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
                         </svg>
                     </div>
-                    <h3>Security & Privacy</h3>
-                    <p>Enterprise-grade security protocols ensuring data protection and compliance with industry standards.</p>
+                    <h3>Open Source Project</h3>
+                    <p>Freely available on GitHub with MIT license. Contribute, customize, and learn from the source code.</p>
                     <ul class="feature-list-items">
-                        <li>End-to-end encryption</li>
-                        <li>Data privacy compliance</li>
-                        <li>Secure authentication</li>
-                        <li>Audit logging</li>
-                    </ul>
-                </div>
-
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
-                        </svg>
-                    </div>
-                    <h3>Performance & Reliability</h3>
-                    <p>High-speed processing with guaranteed uptime and consistent accuracy across all operations.</p>
-                    <ul class="feature-list-items">
-                        <li>Sub-second response time</li>
-                        <li>99.9% uptime guarantee</li>
-                        <li>Load balancing</li>
-                        <li>Auto-scaling</li>
-                    </ul>
-                </div>
-
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <circle cx="12" cy="12" r="3"/>
-                            <path d="M12 1v6m0 6v6M5.64 5.64l4.24 4.24m4.24 4.24l4.24 4.24M1 12h6m6 0h6M5.64 18.36l4.24-4.24m4.24-4.24l4.24-4.24"/>
-                        </svg>
-                    </div>
-                    <h3>Integration Capabilities</h3>
-                    <p>Seamless integration with existing systems through robust API and webhook support.</p>
-                    <ul class="feature-list-items">
-                        <li>RESTful API access</li>
-                        <li>Webhook support</li>
-                        <li>Third-party connections</li>
-                        <li>Multiple export formats</li>
-                    </ul>
-                </div>
-
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <line x1="12" y1="1" x2="12" y2="23"/>
-                            <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
-                        </svg>
-                    </div>
-                    <h3>Analytics & Insights</h3>
-                    <p>Comprehensive analytics dashboard with detailed metrics and performance insights.</p>
-                    <ul class="feature-list-items">
-                        <li>Usage statistics</li>
-                        <li>Performance metrics</li>
-                        <li>Custom reports</li>
-                        <li>Data visualization</li>
+                        <li>MIT License</li>
+                        <li>Community contributions welcome</li>
+                        <li>Full source code access</li>
+                        <li>Active development</li>
                     </ul>
                 </div>
             </div>
         </section>
- 
-     
     </main>
+
     <footer class="footer">
         <div class="footer-content">
             <p>© 2025 VI Assistant. All rights reserved.</p>
             <div class="footer-links">
                 <a href="#" class="footer-link">Privacy Policy</a>
                 <a href="#" class="footer-link">Terms of Service</a>
-                <a href="#" class="footer-link">Contact</a>
+                <a href="https://github.com/sayyedrabeeh/jarvis-ai" class="footer-link">GitHub</a>
             </div>
         </div>
     </footer>
