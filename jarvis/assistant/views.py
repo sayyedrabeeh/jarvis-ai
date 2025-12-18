@@ -11,13 +11,35 @@ from django.shortcuts import render
 from django.http import JsonResponse
 import difflib
 from difflib import get_close_matches
+from google import genai
+
+import os
+
+from dotenv import load_dotenv
+load_dotenv()
 
 
+client = genai.Client(api_key=os.getenv("GEMINI_API_KEY"))
 
+ 
 
  
 def home(request):
     return render(request, 'home.html')
+
+import google.generativeai as genai
+
+genai.configure(api_key=os.getenv("GEMINI_API_KEY"))
+ 
+model = genai.GenerativeModel('gemini-2.5-flash') 
+
+def ai_chat_response(user_message):
+    try:
+        response = model.generate_content(user_message)
+        return response.text.strip()
+    except Exception as e:
+        return f"Error: {str(e)}"
+
 
 GREETINGS = [
     "Hi there! How can I help you today?",
@@ -50,7 +72,7 @@ IDLE_MESSAGES = [
     "Need some assistance or just want to chat? I'm here.",
     "If you have any questions or just want to talk, I'm ready!"
 ]
-
+ 
 @csrf_exempt
 def process_command(request):
     if request.method == 'POST':
@@ -94,16 +116,23 @@ def process_command(request):
             elif matched:
                 try:
                     query = command.replace(matched, '').strip()
-                    response = wikipedia.summary(query, sentences=3)
+                    query = command[len(matched):].strip()
+                    import re
+                    query = re.sub(r'[^\w\s]', '', query)
+                    query = query.title()
+
+                    page = wikipedia.page(query, auto_suggest=False)
+                    response = page.summary[:500]
                 except wikipedia.exceptions.DisambiguationError as e:
                     response = f"There are multiple results for '{query}'. Please be more specific."
                 except wikipedia.exceptions.PageError:
-                    response = f"I couldn't find any information about '{query}'."
-                except Exception as e:
-                    response = f"Error retrieving information: {str(e)}"
+                    response = ai_chat_response(query)
+                except Exception :
+                    response = ai_chat_response(query)
 
             elif any(difflib.get_close_matches(word, ['search'], cutoff=0.8) for word in command.split()):
                 try:
+                  command = command.replace('search for', 'search')
                   possible_words = command.split()
                   search_keyword = difflib.get_close_matches("search", possible_words, n=1, cutoff=0.8)
                   if search_keyword:
@@ -295,8 +324,7 @@ def process_command(request):
                 response = random.choice(IDLE_MESSAGES)
                 
             else:
-                response = "I'm not sure how to help with that. Try asking something like 'What time is it?' or 'Tell me a joke'."
-
+                 response = response = ai_chat_response(command)
         except json.JSONDecodeError:
             response = "Invalid request format. Please send a proper JSON object."
         except Exception as e:

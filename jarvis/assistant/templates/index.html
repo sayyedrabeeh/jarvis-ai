@@ -3,23 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vi Assistant</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
-        <link rel="icon" href="data:image/svg+xml,
-<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'>
-  <text y='20' font-size='20'>🤖</text>
-</svg>">
-  <style>
+    <title>VI Assistant</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><circle cx='12' cy='12' r='10' fill='%233b82f6'/></svg>">
+    <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Roboto', sans-serif;
         }
 
         body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #000000 0%, #1a1a1a 50%, #000000 100%);
+            color: #ffffff;
             min-height: 100vh;
-            background: linear-gradient(135deg, #2c3e50, #3498db);
             display: flex;
             justify-content: center;
             align-items: center;
@@ -28,110 +26,168 @@
 
         .container {
             width: 100%;
-            max-width: 1100px;
-            background: rgba(255, 255, 255, 0.95);
+            max-width: 1400px;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 50%, #0a0a0a 100%);
             border-radius: 12px;
             overflow: hidden;
-            box-shadow: 0 15px 25px rgba(0,0,0,0.2);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8), 0 0 100px rgba(59, 130, 246, 0.1);
             display: flex;
+            height: 85vh;
+            max-height: 800px;
+            border: 1px solid rgba(59, 130, 246, 0.2);
         }
 
         .sidebar {
-            width: 350px;
-            background: #f8f9fa;
-            border-right: 1px solid #e9ecef;
-            padding: 25px 20px;
+            width: 320px;
+            background: linear-gradient(180deg, #000000 0%, #0f0f0f 50%, #000000 100%);
+            border-right: 1px solid rgba(59, 130, 246, 0.2);
+            padding: 30px 20px;
             overflow-y: auto;
-            max-height: 700px;
-        }
-
-        .main-content {
-            flex: 1;
-            padding: 25px;
-            background: white;
             display: flex;
             flex-direction: column;
-            height: 700px;
         }
 
         .branding {
             display: flex;
             align-items: center;
-            margin-bottom: 30px;
+            margin-bottom: 40px;
+            padding-bottom: 25px;
+            border-bottom: 1px solid rgba(59, 130, 246, 0.2);
         }
 
         .logo {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            background: #3498db;
+            width: 45px;
+            height: 45px;
+            border-radius: 10px;
+            background: linear-gradient(135deg, #2563eb, #1d4ed8);
             margin-right: 12px;
             display: flex;
             align-items: center;
             justify-content: center;
             color: white;
-            font-weight: bold;
+            font-weight: 700;
             font-size: 18px;
+            box-shadow: 0 4px 20px rgba(37, 99, 235, 0.5);
         }
 
         .brand-text h2 {
             font-size: 18px;
-            color: #2c3e50;
+            color: #ffffff;
             margin-bottom: 4px;
+            font-weight: 600;
         }
 
         .brand-text p {
             font-size: 12px;
-            color: #7f8c8d;
+            color: #666666;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
         .section-title {
-            font-size: 14px;
+            font-size: 11px;
             text-transform: uppercase;
-            letter-spacing: 1px;
-            color: #7f8c8d;
-            margin-bottom: 15px;
-            margin-top: 25px;
+            letter-spacing: 1.5px;
+            color: #666666;
+            margin-bottom: 12px;
+            margin-top: 20px;
+            font-weight: 600;
+        }
+
+        .command-groups {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 20px;
+        }
+        
+        .command-group {
+            background: linear-gradient(135deg, #1a1a1a, #0f0f0f);
+            color: #999999;
+            border: 1px solid rgba(59, 130, 246, 0.3);
+            border-radius: 6px;
+            padding: 8px 14px;
+            font-size: 12px;
+            cursor: pointer;
+            transition: all 0.3s ease;
             font-weight: 500;
+        }
+        
+        .command-group:hover {
+            background: linear-gradient(135deg, #2a2a2a, #1f1f1f);
+            border-color: #2563eb;
+            color: #ffffff;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+        }
+        
+        .active-group {
+            background: linear-gradient(135deg, #2563eb, #1d4ed8);
+            color: white;
+            border-color: #2563eb;
+            box-shadow: 0 4px 16px rgba(37, 99, 235, 0.4);
         }
 
         .commands-section {
-            margin-bottom: 20px;
+            margin-bottom: 15px;
         }
 
         .command-button {
             display: flex;
             align-items: center;
             width: 100%;
-            padding: 10px 15px;
+            padding: 12px 14px;
             margin-bottom: 6px;
-            background: white;
-            border: 1px solid #e9ecef;
+            background: linear-gradient(135deg, #0a0a0a, #1a1a1a);
+            border: 1px solid rgba(59, 130, 246, 0.2);
             border-radius: 8px;
-            color: #2c3e50;
+            color: #cccccc;
             text-align: left;
             cursor: pointer;
-            transition: all 0.2s ease;
+            transition: all 0.3s ease;
             font-size: 13px;
+            font-family: 'Inter', sans-serif;
         }
 
         .command-button:hover {
-            background: #f1f8fd;
-            border-color: #c9e2f3;
-            transform: translateY(-2px);
-            box-shadow: 0 5px 10px rgba(0,0,0,0.05);
+            background: linear-gradient(135deg, #1a1a1a, #2a2a2a);
+            border-color: #2563eb;
+            color: #ffffff;
+            transform: translateX(4px);
+            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
         }
 
         .command-icon {
-            width: 24px;
-            height: 24px;
-            background: #ecf0f1;
-            border-radius: 50%;
+            width: 28px;
+            height: 28px;
+            background: linear-gradient(135deg, rgba(37, 99, 235, 0.2), rgba(29, 78, 216, 0.2));
+            border-radius: 6px;
             margin-right: 12px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 12px;
+            font-size: 14px;
+            flex-shrink: 0;
+        }
+
+        .info-text {
+            text-align: center;
+            color: #666666;
+            font-size: 11px;
+            margin-top: 15px;
+            line-height: 1.5;
+            padding: 12px;
+            background: linear-gradient(135deg, #0a0a0a, #1a1a1a);
+            border-radius: 6px;
+            border: 1px solid rgba(59, 130, 246, 0.2);
+        }
+
+        .main-content {
+            flex: 1;
+            padding: 30px;
+            background: linear-gradient(135deg, #000000 0%, #0f0f0f 50%, #000000 100%);
+            display: flex;
+            flex-direction: column;
         }
 
         .chat-header {
@@ -139,18 +195,29 @@
             align-items: center;
             justify-content: space-between;
             padding-bottom: 20px;
-            border-bottom: 1px solid #e9ecef;
-            margin-bottom: 20px;
+            border-bottom: 1px solid rgba(59, 130, 246, 0.2);
+            margin-bottom: 25px;
         }
 
         .chat-title {
             font-size: 20px;
-            color: #2c3e50;
+            color: #ffffff;
+            font-weight: 600;
         }
 
         .status {
             display: flex;
             align-items: center;
+            background: linear-gradient(135deg, rgba(16, 185, 129, 0.1), rgba(5, 150, 105, 0.1));
+            padding: 8px 16px;
+            border-radius: 6px;
+            border: 1px solid rgba(16, 185, 129, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .status.processing {
+            background: linear-gradient(135deg, rgba(239, 68, 68, 0.1), rgba(220, 38, 38, 0.1));
+            border-color: rgba(239, 68, 68, 0.3);
         }
 
         .status-indicator {
@@ -159,12 +226,32 @@
             height: 8px;
             border-radius: 50%;
             margin-right: 8px;
-            background: #2ecc71;
+            background: #10b981;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.4; }
+        }
+
+        .status-indicator.processing {
+            background: #ef4444;
+            animation: blink 0.8s infinite;
+        }
+
+        @keyframes blink {
+            50% { opacity: 0.3; }
         }
 
         .status-text {
-            font-size: 14px;
-            color: #7f8c8d;
+            font-size: 12px;
+            color: #10b981;
+            font-weight: 500;
+        }
+
+        .status.processing .status-text {
+            color: #ef4444;
         }
 
         .conversation-history {
@@ -176,7 +263,13 @@
 
         .message {
             margin-bottom: 20px;
-            max-width: 80%;
+            max-width: 75%;
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         .user-message {
@@ -188,43 +281,99 @@
         }
 
         .message-bubble {
-            padding: 12px 16px;
+            padding: 14px 18px;
             border-radius: 12px;
-            box-shadow: 0 1px 2px rgba(0,0,0,0.1);
             font-size: 14px;
-            line-height: 1.5;
+            line-height: 1.6;
         }
 
         .user-message .message-bubble {
-            background: #3498db;
+            background: linear-gradient(135deg, #2563eb, #1d4ed8);
             color: white;
-            border-bottom-right-radius: 2px;
+            border-bottom-right-radius: 4px;
+            box-shadow: 0 4px 16px rgba(37, 99, 235, 0.4);
         }
 
         .assistant-message .message-bubble {
-            background: #f8f9fa;
-            color: #2c3e50;
-            border-bottom-left-radius: 2px;
+            background: linear-gradient(135deg, #1a1a1a, #0f0f0f);
+            color: #e5e5e5;
+            border-bottom-left-radius: 4px;
+            border: 1px solid rgba(59, 130, 246, 0.2);
         }
 
         .message-meta {
-            margin-top: 5px;
+            margin-top: 6px;
             font-size: 11px;
-            color: #95a5a6;
+            color: #666666;
         }
 
         .user-message .message-meta {
             text-align: right;
         }
 
+        .clickable-suggestion {
+            color: #2563eb;
+            cursor: pointer;
+            text-decoration: underline;
+            transition: color 0.2s ease;
+        }
+
+        .clickable-suggestion:hover {
+            color: #1d4ed8;
+        }
+
+        /* Typing Indicator */
+        .typing-indicator {
+            margin-bottom: 20px;
+            max-width: 75%;
+            display: none;
+        }
+
+        .typing-indicator.active {
+            display: block;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .typing-bubble {
+            background: linear-gradient(135deg, #1a1a1a, #0f0f0f);
+            border: 1px solid rgba(59, 130, 246, 0.2);
+            padding: 14px 18px;
+            border-radius: 12px;
+            border-bottom-left-radius: 4px;
+            display: inline-flex;
+            gap: 6px;
+        }
+
+        .typing-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #666666;
+            animation: typingDot 1.4s infinite;
+        }
+
+        .typing-dot:nth-child(2) { animation-delay: 0.2s; }
+        .typing-dot:nth-child(3) { animation-delay: 0.4s; }
+
+        @keyframes typingDot {
+            0%, 60%, 100% { transform: translateY(0); opacity: 0.7; }
+            30% { transform: translateY(-10px); opacity: 1; }
+        }
+
         .input-area {
             position: relative;
             display: flex;
             align-items: center;
-            border: 1px solid #e9ecef;
-            border-radius: 8px;
-            background: #f8f9fa;
-            padding: 8px 60px 8px 16px;
+            border: 1px solid rgba(59, 130, 246, 0.3);
+            border-radius: 10px;
+            background: linear-gradient(135deg, #000000, #1a1a1a);
+            padding: 12px 60px 12px 18px;
+            transition: all 0.3s ease;
+        }
+
+        .input-area:focus-within {
+            border-color: #2563eb;
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
         }
 
         .text-input {
@@ -234,87 +383,103 @@
             background: transparent;
             font-size: 14px;
             line-height: 1.5;
-            color: #2c3e50;
+            color: #ffffff;
             resize: none;
-            height: 40px;
-            padding: 8px 0;
+            max-height: 120px;
+            font-family: 'Inter', sans-serif;
         }
 
         .text-input::placeholder {
-            color: #95a5a6;
+            color: #666666;
         }
 
         .send-button {
             position: absolute;
-            right: 16px;
-            width: 36px;
-            height: 36px;
-            border-radius: 50%;
+            right: 12px;
+            width: 40px;
+            height: 40px;
+            border-radius: 8px;
             border: none;
-            background: #3498db;
+            background: linear-gradient(135deg, #2563eb, #1d4ed8);
             color: white;
             cursor: pointer;
-            transition: all 0.2s ease;
+            transition: all 0.3s ease;
             display: flex;
             align-items: center;
             justify-content: center;
         }
 
-        .send-button:hover {
-            background: #2980b9;
+        .send-button:hover:not(:disabled) {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(37, 99, 235, 0.5);
         }
 
-        .conversation-history::-webkit-scrollbar, .sidebar::-webkit-scrollbar {
+        .send-button:active:not(:disabled) {
+            transform: translateY(0);
+        }
+
+        .send-button:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        /* Scrollbar Styling */
+        .conversation-history::-webkit-scrollbar,
+        .sidebar::-webkit-scrollbar {
             width: 6px;
         }
 
-        .conversation-history::-webkit-scrollbar-track, .sidebar::-webkit-scrollbar-track {
-            background: #f8f9fa;
+        .conversation-history::-webkit-scrollbar-track,
+        .sidebar::-webkit-scrollbar-track {
+            background: #000000;
+        }
+
+        .conversation-history::-webkit-scrollbar-thumb,
+        .sidebar::-webkit-scrollbar-thumb {
+            background: linear-gradient(180deg, #2563eb, #1d4ed8);
             border-radius: 10px;
         }
 
-        .conversation-history::-webkit-scrollbar-thumb, .sidebar::-webkit-scrollbar-thumb {
-            background: #cbd5e0;
-            border-radius: 10px;
+        .conversation-history::-webkit-scrollbar-thumb:hover,
+        .sidebar::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(180deg, #1d4ed8, #1e40af);
         }
 
-        .conversation-history::-webkit-scrollbar-thumb:hover, .sidebar::-webkit-scrollbar-thumb:hover {
-            background: #a0aec0;
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .container {
+                height: 90vh;
+            }
+
+            .sidebar {
+                width: 280px;
+            }
         }
 
-        .status-indicator.processing {
-            background: #e74c3c;
-            animation: blink 1s infinite;
-        }
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
 
-        .command-groups {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-            margin-bottom: 10px;
-        }
-        
-        .command-group {
-            background: #e9f4fe;
-            color: #2980b9;
-            border-radius: 4px;
-            padding: 5px 10px;
-            font-size: 12px;
-            cursor: pointer;
-            transition: all 0.2s ease;
-        }
-        
-        .command-group:hover {
-            background: #d4e9f7;
-        }
-        
-        .active-group {
-            background: #3498db;
-            color: white;
-        }
+            .container {
+                flex-direction: column;
+                height: 95vh;
+            }
 
-        @keyframes blink {
-            50% { opacity: 0.5; }
+            .sidebar {
+                width: 100%;
+                max-height: 35vh;
+                border-right: none;
+                border-bottom: 1px solid rgba(59, 130, 246, 0.2);
+            }
+
+            .main-content {
+                padding: 20px;
+            }
+
+            .message {
+                max-width: 85%;
+            }
         }
     </style>
 </head>
@@ -324,8 +489,8 @@
             <div class="branding">
                 <div class="logo">VI</div>
                 <div class="brand-text">
-                    <h2>Vi  Assistant</h2>
-                    <p>Simple Solutions</p>
+                    <h2>VI Assistant</h2>
+                    <p>Web Assistant</p>
                 </div>
             </div>
 
@@ -337,7 +502,7 @@
                 <div class="command-group" onclick="showCommandSection('search')">Search</div>
             </div>
 
-             
+            <!-- General Commands -->
             <div class="commands-section" id="general-commands">
                 <h3 class="section-title">General Commands</h3>
                 <button class="command-button" onclick="insertCommand('What time is it?')">
@@ -363,7 +528,7 @@
                 </button>
             </div>
 
-            
+            <!-- Questions Commands -->
             <div class="commands-section" id="questions-commands" style="display:none;">
                 <h3 class="section-title">Information Queries</h3>
                 <button class="command-button" onclick="insertCommand('Who is Albert Einstein?')">
@@ -384,12 +549,10 @@
                 <button class="command-button" onclick="insertCommand('What is quantum physics?')">
                     <span class="command-icon">⚛️</span> What is quantum physics?
                 </button>
-
-                <P style="text-align: center; color: #646262; font-size: 0.9em; margin-top: 20px;"> You can create your own questions  </P>
-           
+                <p class="info-text">You can create your own questions</p>
             </div>
 
-           
+            <!-- Open Commands -->
             <div class="commands-section" id="open-commands" style="display:none;">
                 <h3 class="section-title">Open Websites</h3>
                 <button class="command-button" onclick="insertCommand('Open YouTube')">
@@ -437,21 +600,9 @@
                 <button class="command-button" onclick="insertCommand('Open Amazon')">
                     <span class="command-icon">🛒</span> Open Amazon
                 </button>
-                <button class="command-button" onclick="insertCommand('Open IMDb')">
-                    <span class="command-icon">🎭</span> Open IMDb
-                </button>
-                <button class="command-button" onclick="insertCommand('Open Weather')">
-                    <span class="command-icon">☁️</span> Open Weather
-                </button>
-                <button class="command-button" onclick="insertCommand('Open News')">
-                    <span class="command-icon">📰</span> Open News
-                </button>
-                <button class="command-button" onclick="insertCommand('Open CNN')">
-                    <span class="command-icon">📺</span> Open CNN
-                </button>
             </div>
 
-           
+            <!-- Play Commands -->
             <div class="commands-section" id="play-commands" style="display:none;">
                 <h3 class="section-title">Play Music & Videos</h3>
                 <button class="command-button" onclick="insertCommand('Play Despacito')">
@@ -478,18 +629,13 @@
                 <button class="command-button" onclick="insertCommand('Play top hits')">
                     <span class="command-icon">🎵</span> Play top hits
                 </button>
-                <p style="text-align: center; color: #646262; font-size: 0.9em; margin-top: 20px;">
-                       You can play any song you want by simply telling the assistant.
-                   </p>
-                   <p style="text-align: center; color: #646262; font-size: 0.9em;">
-                       By default, songs will be played on <strong>YouTube</strong>. To play from a specific platform like 
-                       <strong>Spotify</strong>, <strong>SoundCloud</strong>, or <strong>Gaana</strong>, just mention it in your command.<br>
-                       For example: <em>"Play Bollywood songs on Gaana"</em>
-                   </p>
-                   
+                <p class="info-text">
+                    You can play any song. By default, songs play on <strong>YouTube</strong>. 
+                    Specify <strong>Spotify</strong>, <strong>SoundCloud</strong>, or <strong>Gaana</strong> if desired.
+                </p>
             </div>
 
-             
+            <!-- Search Commands -->
             <div class="commands-section" id="search-commands" style="display:none;">
                 <h3 class="section-title">Search Queries</h3>
                 <button class="command-button" onclick="insertCommand('Search for climate change')">
@@ -510,17 +656,16 @@
                 <button class="command-button" onclick="insertCommand('Search for AI news')">
                     <span class="command-icon">📰</span> Search for AI news
                 </button>
-          <P style="text-align: center; color: #646262; font-size: 0.9em; margin-top: 20px;"> You can Search your own Topics  </P>
-
+                <p class="info-text">You can search your own topics</p>
             </div>
         </div>
 
         <div class="main-content">
             <div class="chat-header">
                 <div class="chat-title">Conversation</div>
-                <div class="status">
+                <div class="status" id="statusContainer">
                     <span class="status-indicator" id="statusIndicator"></span>
-                    <span class="status-text">Ready to assist</span>
+                    <span class="status-text" id="statusText">Ready to assist</span>
                 </div>
             </div>
 
@@ -529,14 +674,22 @@
                     <div class="message-bubble">
                         Welcome to VI Assistant. How may I assist you today? Try one of the commands from the sidebar!
                     </div>
-                    <div class="message-meta">Today, {{ current_time }}</div>
+                    <div class="message-meta" id="welcomeTime"></div>
+                </div>
+            </div>
+
+            <div class="typing-indicator" id="typingIndicator">
+                <div class="typing-bubble">
+                    <div class="typing-dot"></div>
+                    <div class="typing-dot"></div>
+                    <div class="typing-dot"></div>
                 </div>
             </div>
 
             <div class="input-area">
                 <textarea class="text-input" id="textInput" placeholder="Type your message here..." rows="1"></textarea>
                 <button class="send-button" id="sendButton">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <line x1="22" y1="2" x2="11" y2="13"></line>
                         <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
                     </svg>
@@ -546,178 +699,192 @@
     </div>
 
     <script>
-  
-    const textInput = document.getElementById('textInput');
-    const sendButton = document.getElementById('sendButton');
-    const statusIndicator = document.getElementById('statusIndicator');
-    const conversationHistory = document.getElementById('conversationHistory');
+        const textInput = document.getElementById('textInput');
+        const sendButton = document.getElementById('sendButton');
+        const statusIndicator = document.getElementById('statusIndicator');
+        const statusText = document.getElementById('statusText');
+        const statusContainer = document.getElementById('statusContainer');
+        const conversationHistory = document.getElementById('conversationHistory');
+        const typingIndicator = document.getElementById('typingIndicator');
 
-    function sendCommand(command) {
-        if (!command) return;
-        
-         
-        const currentTime = new Date().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
-        
-        const userMessageElement = document.createElement('div');
-        userMessageElement.classList.add('message', 'user-message');
-        userMessageElement.innerHTML = `
-            <div class="message-bubble">${command}</div>
-            <div class="message-meta">Today, ${currentTime}</div>
-        `;
-        
-        conversationHistory.appendChild(userMessageElement);
-        conversationHistory.scrollTop = conversationHistory.scrollHeight;
-        
-        // Show processing status
-        statusIndicator.classList.add('processing');
-        
-        // Simulate fetch request with original implementation
-        fetch("{% url 'process_command' %}", {
-            method: "POST",
-            headers: {
-                "X-CSRFToken": "{{ csrf_token }}",
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify({ command: command }),
-        })
-        .then(response => response.json())
-        .then(data => {
-            // Add assistant response to conversation
-            const assistantMessageElement = document.createElement('div');
-            assistantMessageElement.classList.add('message', 'assistant-message');
-            assistantMessageElement.innerHTML = `
-                <div class="message-bubble">${data.response}</div>
-                <div class="message-meta">Today, ${currentTime}</div>
-            `;
-            
-            conversationHistory.appendChild(assistantMessageElement);
+        // Set welcome time
+        document.getElementById('welcomeTime').textContent = `Today, ${new Date().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})}`;
+
+        function showTypingIndicator() {
+            typingIndicator.classList.add('active');
+            statusIndicator.classList.add('processing');
+            statusContainer.classList.add('processing');
+            statusText.textContent = 'Processing...';
+            sendButton.disabled = true;
             conversationHistory.scrollTop = conversationHistory.scrollHeight;
-            if (data.url) {
-                 window.open(data.url, "_blank");
-               }
-            // Handle follow-up suggestions
-            if (command.toLowerCase().includes('random') || 
-                command.toLowerCase().includes('talk') || 
-                (command.toLowerCase().match(/^(hi|hello|hey|hllo|hlo|hii)$/))) {
-                setTimeout(suggestFollowUp, 2000);
-            }
-        })
-        .catch(error => {
-            // Handle error
-            const errorMessageElement = document.createElement('div');
-            errorMessageElement.classList.add('message', 'assistant-message');
-            errorMessageElement.innerHTML = `
-                <div class="message-bubble">Error processing command. Please try again.</div>
-                <div class="message-meta">Today, ${currentTime}</div>
-            `;
-            
-            conversationHistory.appendChild(errorMessageElement);
-            conversationHistory.scrollTop = conversationHistory.scrollHeight;
-        })
-        .finally(() => {
-            statusIndicator.classList.remove('processing');
-            textInput.value = '';
-        });
-    }
-
-    function insertCommand(command) {
-        textInput.value = command;
-        textInput.focus();
-    }
-
-    function suggestFollowUp() {
-        const suggestions = [
-            "Tell me a joke",
-            "What time is it?", 
-            "Who is Marie Curie?",
-            "Tell me something interesting",
-            "Open YouTube",
-            "Play relaxing music"
-        ];
-        
-        const randomSuggestion = suggestions[Math.floor(Math.random() * suggestions.length)];
-        const currentTime = new Date().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
-        
-        const suggestionElement = document.createElement('div');
-        suggestionElement.classList.add('message', 'assistant-message');
-        suggestionElement.innerHTML = `
-            <div class="message-bubble">
-                Would you like to try: <span class="clickable-suggestion" onclick="insertCommand('${randomSuggestion}')" style="color: #3498db; cursor: pointer; text-decoration: underline;">${randomSuggestion}</span>?
-            </div>
-            <div class="message-meta">Today, ${currentTime}</div>
-        `;
-        
-        conversationHistory.appendChild(suggestionElement);
-        conversationHistory.scrollTop = conversationHistory.scrollHeight;
-    }
-
-    function showCommandSection(section) {
-        
-        document.querySelectorAll('.commands-section').forEach(elem => {
-            elem.style.display = 'none';
-        });
-        
-        
-        document.getElementById(section + '-commands').style.display = 'block';
-        
-        
-        document.querySelectorAll('.command-group').forEach(elem => {
-            elem.classList.remove('active-group');
-        });
-        
-         
-        event.target.classList.add('active-group');
-    }
-
-    
-    sendButton.addEventListener('click', () => {
-        sendCommand(textInput.value);
-    });
-
-    textInput.addEventListener('keypress', (e) => {
-        if (e.key === 'Enter' && !e.shiftKey) {
-            e.preventDefault();
-            sendCommand(textInput.value);
         }
-    });
 
-    
-    textInput.addEventListener('input', function() {
-        this.style.height = 'auto';
-        this.style.height = (this.scrollHeight < 120) ? this.scrollHeight + 'px' : '120px';
-    });
+        function hideTypingIndicator() {
+            typingIndicator.classList.remove('active');
+            statusIndicator.classList.remove('processing');
+            statusContainer.classList.remove('processing');
+            statusText.textContent = 'Ready to assist';
+            sendButton.disabled = false;
+        }
 
-    
-    let idleTimer;
-    function resetIdleTimer() {
-        clearTimeout(idleTimer);
-        idleTimer = setTimeout(() => {
-            if (conversationHistory.children.length > 1) {
-                const idleMessages = [
-                    "Still there? Feel free to ask me anything.",
-                    "Just checking in. Need any assistance?",
-                    "Wondering what else I can do? Try checking out the command categories in the sidebar!"
-                ];
-                const randomMessage = idleMessages[Math.floor(Math.random() * idleMessages.length)];
-                const currentTime = new Date().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
+        function sendCommand(command) {
+            if (!command.trim()) return;
+            
+            const currentTime = new Date().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
+            
+            const userMessageElement = document.createElement('div');
+            userMessageElement.classList.add('message', 'user-message');
+            userMessageElement.innerHTML = `
+                <div class="message-bubble">${command}</div>
+                <div class="message-meta">Today, ${currentTime}</div>
+            `;
+            
+            conversationHistory.appendChild(userMessageElement);
+            conversationHistory.scrollTop = conversationHistory.scrollHeight;
+            
+            textInput.value = '';
+            textInput.style.height = 'auto';
+            
+            showTypingIndicator();
+            
+            fetch("{% url 'process_command' %}", {
+                method: "POST",
+                headers: {
+                    "X-CSRFToken": "{{ csrf_token }}",
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({ command: command }),
+            })
+            .then(response => response.json())
+            .then(data => {
+                hideTypingIndicator();
                 
-                const idleMessageElement = document.createElement('div');
-                idleMessageElement.classList.add('message', 'assistant-message');
-                idleMessageElement.innerHTML = `
-                    <div class="message-bubble">${randomMessage}</div>
+                const assistantMessageElement = document.createElement('div');
+                assistantMessageElement.classList.add('message', 'assistant-message');
+                assistantMessageElement.innerHTML = `
+                    <div class="message-bubble">${data.response}</div>
                     <div class="message-meta">Today, ${currentTime}</div>
                 `;
                 
-                conversationHistory.appendChild(idleMessageElement);
+                conversationHistory.appendChild(assistantMessageElement);
                 conversationHistory.scrollTop = conversationHistory.scrollHeight;
-            }
-        }, 120000);
-    }
+                
+                if (data.url) {
+                    window.open(data.url, "_blank");
+                }
+                
+                if (command.toLowerCase().includes('random') || 
+                    command.toLowerCase().includes('talk') || 
+                    (command.toLowerCase().match(/^(hi|hello|hey|hllo|hlo|hii)$/))) {
+                    setTimeout(suggestFollowUp, 2000);
+                }
+            })
+            .catch(error => {
+                hideTypingIndicator();
+                
+                const errorMessageElement = document.createElement('div');
+                errorMessageElement.classList.add('message', 'assistant-message');
+                errorMessageElement.innerHTML = `
+                    <div class="message-bubble">Error processing command. Please try again.</div>
+                    <div class="message-meta">Today, ${currentTime}</div>
+                `;
+                
+                conversationHistory.appendChild(errorMessageElement);
+                conversationHistory.scrollTop = conversationHistory.scrollHeight;
+            });
+        }
 
-    document.addEventListener('mousemove', resetIdleTimer);
-    document.addEventListener('keypress', resetIdleTimer);
-    textInput.addEventListener('focus', resetIdleTimer);
-    resetIdleTimer();
+        function insertCommand(command) {
+            textInput.value = command;
+            textInput.focus();
+        }
+
+        function suggestFollowUp() {
+            const suggestions = [
+                "Tell me a joke",
+                "What time is it?", 
+                "Who is Marie Curie?",
+                "Tell me something interesting",
+                "Open YouTube",
+                "Play relaxing music"
+            ];
+            
+            const randomSuggestion = suggestions[Math.floor(Math.random() * suggestions.length)];
+            const currentTime = new Date().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
+            
+            const suggestionElement = document.createElement('div');
+            suggestionElement.classList.add('message', 'assistant-message');
+            suggestionElement.innerHTML = `
+                <div class="message-bubble">
+                    Would you like to try: <span class="clickable-suggestion" onclick="insertCommand('${randomSuggestion}')">${randomSuggestion}</span>?
+                </div>
+                <div class="message-meta">Today, ${currentTime}</div>
+            `;
+            
+            conversationHistory.appendChild(suggestionElement);
+            conversationHistory.scrollTop = conversationHistory.scrollHeight;
+        }
+
+        function showCommandSection(section) {
+            document.querySelectorAll('.commands-section').forEach(elem => {
+                elem.style.display = 'none';
+            });
+            
+            document.getElementById(section + '-commands').style.display = 'block';
+            
+            document.querySelectorAll('.command-group').forEach(elem => {
+                elem.classList.remove('active-group');
+            });
+            
+            event.target.classList.add('active-group');
+        }
+
+        sendButton.addEventListener('click', () => {
+            sendCommand(textInput.value);
+        });
+
+        textInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter' && !e.shiftKey) {
+                e.preventDefault();
+                sendCommand(textInput.value);
+            }
+        });
+
+        textInput.addEventListener('input', function() {
+            this.style.height = 'auto';
+            this.style.height = (this.scrollHeight < 120) ? this.scrollHeight + 'px' : '120px';
+        });
+
+        let idleTimer;
+        function resetIdleTimer() {
+            clearTimeout(idleTimer);
+            idleTimer = setTimeout(() => {
+                if (conversationHistory.children.length > 1) {
+                    const idleMessages = [
+                        "Still there? Feel free to ask me anything.",
+                        "Just checking in. Need any assistance?",
+                        "Wondering what else I can do? Try checking out the command categories in the sidebar!"
+                    ];
+                    const randomMessage = idleMessages[Math.floor(Math.random() * idleMessages.length)];
+                    const currentTime = new Date().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
+                    
+                    const idleMessageElement = document.createElement('div');
+                    idleMessageElement.classList.add('message', 'assistant-message');
+                    idleMessageElement.innerHTML = `
+                        <div class="message-bubble">${randomMessage}</div>
+                        <div class="message-meta">Today, ${currentTime}</div>
+                    `;
+                    
+                    conversationHistory.appendChild(idleMessageElement);
+                    conversationHistory.scrollTop = conversationHistory.scrollHeight;
+                }
+            }, 120000);
+        }
+
+        document.addEventListener('mousemove', resetIdleTimer);
+        document.addEventListener('keypress', resetIdleTimer);
+        textInput.addEventListener('focus', resetIdleTimer);
+        resetIdleTimer();
     </script>
 </body>
 </html>
