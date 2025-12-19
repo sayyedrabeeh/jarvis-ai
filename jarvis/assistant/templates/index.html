@@ -14,34 +14,54 @@
         }
 
         body {
-            font-family: 'Inter', sans-serif;
-            background: linear-gradient(135deg, #000000 0%, #1a1a1a 50%, #000000 100%);
-            color: #ffffff;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);
+            color: #e2e8f0;
             min-height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
             padding: 20px;
+            position: relative;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 30%, rgba(59, 130, 246, 0.05) 0%, transparent 50%),
+                radial-gradient(circle at 80% 70%, rgba(139, 92, 246, 0.03) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: 0;
         }
 
         .container {
             width: 100%;
             max-width: 1400px;
-            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 50%, #0a0a0a 100%);
-            border-radius: 12px;
+            background: rgba(15, 23, 42, 0.8);
+            backdrop-filter: blur(20px);
+            border-radius: 16px;
             overflow: hidden;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8), 0 0 100px rgba(59, 130, 246, 0.1);
+            box-shadow: 
+                0 0 0 1px rgba(148, 163, 184, 0.1),
+                0 20px 60px rgba(0, 0, 0, 0.5);
             display: flex;
             height: 85vh;
             max-height: 800px;
-            border: 1px solid rgba(59, 130, 246, 0.2);
+            position: relative;
+            z-index: 1;
         }
 
         .sidebar {
             width: 320px;
-            background: linear-gradient(180deg, #000000 0%, #0f0f0f 50%, #000000 100%);
-            border-right: 1px solid rgba(59, 130, 246, 0.2);
-            padding: 30px 20px;
+            background: rgba(30, 41, 59, 0.6);
+            backdrop-filter: blur(10px);
+            border-right: 1px solid rgba(148, 163, 184, 0.1);
+            padding: 24px 20px;
             overflow-y: auto;
             display: flex;
             flex-direction: column;
@@ -50,45 +70,45 @@
         .branding {
             display: flex;
             align-items: center;
-            margin-bottom: 40px;
-            padding-bottom: 25px;
-            border-bottom: 1px solid rgba(59, 130, 246, 0.2);
+            margin-bottom: 32px;
+            padding-bottom: 24px;
+            border-bottom: 1px solid rgba(148, 163, 184, 0.1);
         }
 
         .logo {
-            width: 45px;
-            height: 45px;
-            border-radius: 10px;
-            background: linear-gradient(135deg, #2563eb, #1d4ed8);
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            background: linear-gradient(135deg, #3b82f6, #2563eb);
             margin-right: 12px;
             display: flex;
             align-items: center;
             justify-content: center;
             color: white;
             font-weight: 700;
-            font-size: 18px;
-            box-shadow: 0 4px 20px rgba(37, 99, 235, 0.5);
+            font-size: 20px;
+            box-shadow: 0 4px 16px rgba(59, 130, 246, 0.3);
         }
 
         .brand-text h2 {
             font-size: 18px;
-            color: #ffffff;
+            color: #f8fafc;
             margin-bottom: 4px;
             font-weight: 600;
+            letter-spacing: -0.02em;
         }
 
         .brand-text p {
-            font-size: 12px;
-            color: #666666;
-            text-transform: uppercase;
-            letter-spacing: 1px;
+            font-size: 13px;
+            color: #94a3b8;
+            font-weight: 400;
         }
 
         .section-title {
             font-size: 11px;
             text-transform: uppercase;
-            letter-spacing: 1.5px;
-            color: #666666;
+            letter-spacing: 0.1em;
+            color: #64748b;
             margin-bottom: 12px;
             margin-top: 20px;
             font-weight: 600;
@@ -98,38 +118,47 @@
             display: flex;
             flex-wrap: wrap;
             gap: 8px;
-            margin-bottom: 20px;
+            margin-bottom: 24px;
         }
         
         .command-group {
-            background: linear-gradient(135deg, #1a1a1a, #0f0f0f);
-            color: #999999;
-            border: 1px solid rgba(59, 130, 246, 0.3);
-            border-radius: 6px;
-            padding: 8px 14px;
-            font-size: 12px;
+            background: rgba(51, 65, 85, 0.5);
+            color: #cbd5e1;
+            border: 1px solid rgba(148, 163, 184, 0.1);
+            border-radius: 8px;
+            padding: 8px 16px;
+            font-size: 13px;
             cursor: pointer;
-            transition: all 0.3s ease;
+            transition: all 0.2s ease;
             font-weight: 500;
         }
         
         .command-group:hover {
-            background: linear-gradient(135deg, #2a2a2a, #1f1f1f);
-            border-color: #2563eb;
-            color: #ffffff;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+            background: rgba(51, 65, 85, 0.8);
+            border-color: rgba(148, 163, 184, 0.2);
+            color: #f1f5f9;
         }
         
         .active-group {
-            background: linear-gradient(135deg, #2563eb, #1d4ed8);
+            background: linear-gradient(135deg, #3b82f6, #2563eb);
             color: white;
-            border-color: #2563eb;
-            box-shadow: 0 4px 16px rgba(37, 99, 235, 0.4);
+            border-color: transparent;
+            box-shadow: 0 2px 8px rgba(59, 130, 246, 0.3);
         }
 
         .commands-section {
             margin-bottom: 15px;
+            display: none;
+        }
+
+        .commands-section.active {
+            display: block;
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         .command-button {
@@ -138,54 +167,53 @@
             width: 100%;
             padding: 12px 14px;
             margin-bottom: 6px;
-            background: linear-gradient(135deg, #0a0a0a, #1a1a1a);
-            border: 1px solid rgba(59, 130, 246, 0.2);
-            border-radius: 8px;
-            color: #cccccc;
+            background: rgba(51, 65, 85, 0.3);
+            border: 1px solid rgba(148, 163, 184, 0.08);
+            border-radius: 10px;
+            color: #cbd5e1;
             text-align: left;
             cursor: pointer;
-            transition: all 0.3s ease;
-            font-size: 13px;
+            transition: all 0.2s ease;
+            font-size: 14px;
             font-family: 'Inter', sans-serif;
         }
 
         .command-button:hover {
-            background: linear-gradient(135deg, #1a1a1a, #2a2a2a);
-            border-color: #2563eb;
-            color: #ffffff;
-            transform: translateX(4px);
-            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+            background: rgba(51, 65, 85, 0.6);
+            border-color: rgba(59, 130, 246, 0.3);
+            color: #f1f5f9;
+            transform: translateX(2px);
         }
 
         .command-icon {
-            width: 28px;
-            height: 28px;
-            background: linear-gradient(135deg, rgba(37, 99, 235, 0.2), rgba(29, 78, 216, 0.2));
-            border-radius: 6px;
+            width: 32px;
+            height: 32px;
+            background: rgba(59, 130, 246, 0.15);
+            border-radius: 8px;
             margin-right: 12px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 14px;
+            font-size: 16px;
             flex-shrink: 0;
         }
 
         .info-text {
             text-align: center;
-            color: #666666;
-            font-size: 11px;
-            margin-top: 15px;
+            color: #64748b;
+            font-size: 12px;
+            margin-top: 16px;
             line-height: 1.5;
             padding: 12px;
-            background: linear-gradient(135deg, #0a0a0a, #1a1a1a);
-            border-radius: 6px;
-            border: 1px solid rgba(59, 130, 246, 0.2);
+            background: rgba(59, 130, 246, 0.05);
+            border-radius: 8px;
+            border: 1px solid rgba(59, 130, 246, 0.1);
         }
 
         .main-content {
             flex: 1;
-            padding: 30px;
-            background: linear-gradient(135deg, #000000 0%, #0f0f0f 50%, #000000 100%);
+            padding: 24px 30px;
+            background: rgba(15, 23, 42, 0.4);
             display: flex;
             flex-direction: column;
         }
@@ -195,29 +223,29 @@
             align-items: center;
             justify-content: space-between;
             padding-bottom: 20px;
-            border-bottom: 1px solid rgba(59, 130, 246, 0.2);
+            border-bottom: 1px solid rgba(148, 163, 184, 0.1);
             margin-bottom: 25px;
         }
 
         .chat-title {
-            font-size: 20px;
-            color: #ffffff;
+            font-size: 18px;
+            color: #f8fafc;
             font-weight: 600;
         }
 
         .status {
             display: flex;
             align-items: center;
-            background: linear-gradient(135deg, rgba(16, 185, 129, 0.1), rgba(5, 150, 105, 0.1));
+            background: rgba(16, 185, 129, 0.1);
             padding: 8px 16px;
-            border-radius: 6px;
-            border: 1px solid rgba(16, 185, 129, 0.3);
+            border-radius: 8px;
+            border: 1px solid rgba(16, 185, 129, 0.2);
             transition: all 0.3s ease;
         }
 
         .status.processing {
-            background: linear-gradient(135deg, rgba(239, 68, 68, 0.1), rgba(220, 38, 38, 0.1));
-            border-color: rgba(239, 68, 68, 0.3);
+            background: rgba(251, 146, 60, 0.1);
+            border-color: rgba(251, 146, 60, 0.2);
         }
 
         .status-indicator {
@@ -226,32 +254,32 @@
             height: 8px;
             border-radius: 50%;
             margin-right: 8px;
-            background: #10b981;
-            animation: pulse 2s infinite;
+            background: #34d399;
+            animation: pulse 2s ease-in-out infinite;
         }
 
         @keyframes pulse {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.4; }
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.5; transform: scale(0.9); }
         }
 
         .status-indicator.processing {
-            background: #ef4444;
-            animation: blink 0.8s infinite;
+            background: #fb923c;
+            animation: spin 1s linear infinite;
         }
 
-        @keyframes blink {
-            50% { opacity: 0.3; }
+        @keyframes spin {
+            to { transform: rotate(360deg); }
         }
 
         .status-text {
-            font-size: 12px;
-            color: #10b981;
+            font-size: 13px;
+            color: #34d399;
             font-weight: 500;
         }
 
         .status.processing .status-text {
-            color: #ef4444;
+            color: #fb923c;
         }
 
         .conversation-history {
@@ -264,11 +292,11 @@
         .message {
             margin-bottom: 20px;
             max-width: 75%;
-            animation: fadeIn 0.3s ease;
+            animation: slideIn 0.3s ease;
         }
 
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
         }
 
@@ -281,30 +309,30 @@
         }
 
         .message-bubble {
-            padding: 14px 18px;
-            border-radius: 12px;
+            padding: 16px 20px;
+            border-radius: 16px;
             font-size: 14px;
             line-height: 1.6;
         }
 
         .user-message .message-bubble {
-            background: linear-gradient(135deg, #2563eb, #1d4ed8);
+            background: linear-gradient(135deg, #3b82f6, #2563eb);
             color: white;
             border-bottom-right-radius: 4px;
-            box-shadow: 0 4px 16px rgba(37, 99, 235, 0.4);
+            box-shadow: 0 4px 16px rgba(59, 130, 246, 0.3);
         }
 
         .assistant-message .message-bubble {
-            background: linear-gradient(135deg, #1a1a1a, #0f0f0f);
-            color: #e5e5e5;
+            background: rgba(51, 65, 85, 0.5);
+            color: #e2e8f0;
             border-bottom-left-radius: 4px;
-            border: 1px solid rgba(59, 130, 246, 0.2);
+            border: 1px solid rgba(148, 163, 184, 0.1);
         }
 
         .message-meta {
             margin-top: 6px;
             font-size: 11px;
-            color: #666666;
+            color: #64748b;
         }
 
         .user-message .message-meta {
@@ -312,14 +340,16 @@
         }
 
         .clickable-suggestion {
-            color: #2563eb;
+            color: #60a5fa;
             cursor: pointer;
             text-decoration: underline;
+            text-decoration-color: rgba(96, 165, 250, 0.3);
             transition: color 0.2s ease;
         }
 
         .clickable-suggestion:hover {
-            color: #1d4ed8;
+            color: #93c5fd;
+            text-decoration-color: rgba(147, 197, 253, 0.5);
         }
 
         /* Typing Indicator */
@@ -335,10 +365,10 @@
         }
 
         .typing-bubble {
-            background: linear-gradient(135deg, #1a1a1a, #0f0f0f);
-            border: 1px solid rgba(59, 130, 246, 0.2);
+            background: rgba(51, 65, 85, 0.5);
+            border: 1px solid rgba(148, 163, 184, 0.1);
             padding: 14px 18px;
-            border-radius: 12px;
+            border-radius: 16px;
             border-bottom-left-radius: 4px;
             display: inline-flex;
             gap: 6px;
@@ -348,32 +378,33 @@
             width: 8px;
             height: 8px;
             border-radius: 50%;
-            background: #666666;
-            animation: typingDot 1.4s infinite;
+            background: #64748b;
+            animation: bounce 1.4s infinite ease-in-out;
         }
 
-        .typing-dot:nth-child(2) { animation-delay: 0.2s; }
-        .typing-dot:nth-child(3) { animation-delay: 0.4s; }
+        .typing-dot:nth-child(1) { animation-delay: -0.32s; }
+        .typing-dot:nth-child(2) { animation-delay: -0.16s; }
 
-        @keyframes typingDot {
-            0%, 60%, 100% { transform: translateY(0); opacity: 0.7; }
-            30% { transform: translateY(-10px); opacity: 1; }
+        @keyframes bounce {
+            0%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-8px); }
         }
 
         .input-area {
             position: relative;
             display: flex;
-            align-items: center;
-            border: 1px solid rgba(59, 130, 246, 0.3);
-            border-radius: 10px;
-            background: linear-gradient(135deg, #000000, #1a1a1a);
-            padding: 12px 60px 12px 18px;
-            transition: all 0.3s ease;
+            align-items: flex-end;
+            border: 1px solid rgba(148, 163, 184, 0.1);
+            border-radius: 12px;
+            background: rgba(30, 41, 59, 0.5);
+            padding: 14px 60px 14px 18px;
+            transition: all 0.2s ease;
         }
 
         .input-area:focus-within {
-            border-color: #2563eb;
-            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+            background: rgba(30, 41, 59, 0.7);
+            border-color: #3b82f6;
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
         }
 
         .text-input {
@@ -383,27 +414,28 @@
             background: transparent;
             font-size: 14px;
             line-height: 1.5;
-            color: #ffffff;
+            color: #f1f5f9;
             resize: none;
             max-height: 120px;
             font-family: 'Inter', sans-serif;
         }
 
         .text-input::placeholder {
-            color: #666666;
+            color: #64748b;
         }
 
         .send-button {
             position: absolute;
             right: 12px;
+            bottom: 12px;
             width: 40px;
             height: 40px;
-            border-radius: 8px;
+            border-radius: 10px;
             border: none;
-            background: linear-gradient(135deg, #2563eb, #1d4ed8);
+            background: linear-gradient(135deg, #3b82f6, #2563eb);
             color: white;
             cursor: pointer;
-            transition: all 0.3s ease;
+            transition: all 0.2s ease;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -411,7 +443,7 @@
 
         .send-button:hover:not(:disabled) {
             transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(37, 99, 235, 0.5);
+            box-shadow: 0 6px 16px rgba(59, 130, 246, 0.4);
         }
 
         .send-button:active:not(:disabled) {
@@ -431,18 +463,18 @@
 
         .conversation-history::-webkit-scrollbar-track,
         .sidebar::-webkit-scrollbar-track {
-            background: #000000;
+            background: transparent;
         }
 
         .conversation-history::-webkit-scrollbar-thumb,
         .sidebar::-webkit-scrollbar-thumb {
-            background: linear-gradient(180deg, #2563eb, #1d4ed8);
+            background: rgba(148, 163, 184, 0.3);
             border-radius: 10px;
         }
 
         .conversation-history::-webkit-scrollbar-thumb:hover,
         .sidebar::-webkit-scrollbar-thumb:hover {
-            background: linear-gradient(180deg, #1d4ed8, #1e40af);
+            background: rgba(148, 163, 184, 0.5);
         }
 
         /* Responsive Design */
@@ -470,7 +502,7 @@
                 width: 100%;
                 max-height: 35vh;
                 border-right: none;
-                border-bottom: 1px solid rgba(59, 130, 246, 0.2);
+                border-bottom: 1px solid rgba(148, 163, 184, 0.1);
             }
 
             .main-content {
@@ -485,7 +517,7 @@
 </head>
 <body>
     <div class="container">
-        <div class="sidebar">
+        <aside class="sidebar">
             <div class="branding">
                 <div class="logo">VI</div>
                 <div class="brand-text">
@@ -503,7 +535,7 @@
             </div>
 
             <!-- General Commands -->
-            <div class="commands-section" id="general-commands">
+            <div class="commands-section active" id="general-commands">
                 <h3 class="section-title">General Commands</h3>
                 <button class="command-button" onclick="insertCommand('What time is it?')">
                     <span class="command-icon">🕒</span> What time is it?
@@ -529,7 +561,7 @@
             </div>
 
             <!-- Questions Commands -->
-            <div class="commands-section" id="questions-commands" style="display:none;">
+            <div class="commands-section" id="questions-commands">
                 <h3 class="section-title">Information Queries</h3>
                 <button class="command-button" onclick="insertCommand('Who is Albert Einstein?')">
                     <span class="command-icon">👨‍🔬</span> Who is Albert Einstein?
@@ -553,7 +585,7 @@
             </div>
 
             <!-- Open Commands -->
-            <div class="commands-section" id="open-commands" style="display:none;">
+            <div class="commands-section" id="open-commands">
                 <h3 class="section-title">Open Websites</h3>
                 <button class="command-button" onclick="insertCommand('Open YouTube')">
                     <span class="command-icon">📺</span> Open YouTube
@@ -603,7 +635,7 @@
             </div>
 
             <!-- Play Commands -->
-            <div class="commands-section" id="play-commands" style="display:none;">
+            <div class="commands-section" id="play-commands">
                 <h3 class="section-title">Play Music & Videos</h3>
                 <button class="command-button" onclick="insertCommand('Play Despacito')">
                     <span class="command-icon">🎵</span> Play Despacito
@@ -636,7 +668,7 @@
             </div>
 
             <!-- Search Commands -->
-            <div class="commands-section" id="search-commands" style="display:none;">
+            <div class="commands-section" id="search-commands">
                 <h3 class="section-title">Search Queries</h3>
                 <button class="command-button" onclick="insertCommand('Search for climate change')">
                     <span class="command-icon">🔍</span> Search for climate change
@@ -658,16 +690,16 @@
                 </button>
                 <p class="info-text">You can search your own topics</p>
             </div>
-        </div>
+        </aside>
 
-        <div class="main-content">
-            <div class="chat-header">
-                <div class="chat-title">Conversation</div>
+        <main class="main-content">
+            <header class="chat-header">
+                <h2 class="chat-title">Conversation</h2>
                 <div class="status" id="statusContainer">
                     <span class="status-indicator" id="statusIndicator"></span>
                     <span class="status-text" id="statusText">Ready to assist</span>
                 </div>
-            </div>
+            </header>
 
             <div class="conversation-history" id="conversationHistory">
                 <div class="message assistant-message">
@@ -695,7 +727,7 @@
                     </svg>
                 </button>
             </div>
-        </div>
+        </main>
     </div>
 
     <script>
@@ -707,7 +739,6 @@
         const conversationHistory = document.getElementById('conversationHistory');
         const typingIndicator = document.getElementById('typingIndicator');
 
-        // Set welcome time
         document.getElementById('welcomeTime').textContent = `Today, ${new Date().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})}`;
 
         function showTypingIndicator() {
@@ -827,10 +858,10 @@
 
         function showCommandSection(section) {
             document.querySelectorAll('.commands-section').forEach(elem => {
-                elem.style.display = 'none';
+                elem.classList.remove('active');
             });
             
-            document.getElementById(section + '-commands').style.display = 'block';
+            document.getElementById(section + '-commands').classList.add('active');
             
             document.querySelectorAll('.command-group').forEach(elem => {
                 elem.classList.remove('active-group');
