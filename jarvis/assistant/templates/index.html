@@ -513,18 +513,26 @@
                 max-width: 85%;
             }
         }
+        .branding-link {
+            text-decoration: none;
+            color: inherit;
+        }
+
     </style>
 </head>
 <body>
     <div class="container">
         <aside class="sidebar">
-            <div class="branding">
-                <div class="logo">VI</div>
-                <div class="brand-text">
-                    <h2>VI Assistant</h2>
-                    <p>Web Assistant</p>
+           <a href="{% url 'home' %}" class="branding-link">
+                <div class="branding">
+                    <div class="logo">VI</div>
+                    <div class="brand-text">
+                        <h2>VI Assistant</h2>
+                        <p>Web Assistant</p>
+                    </div>
                 </div>
-            </div>
+            </a>
+
 
             <div class="command-groups">
                 <div class="command-group active-group" onclick="showCommandSection('general')">General</div>

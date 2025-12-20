@@ -30,19 +30,19 @@ Thanks for your support! ❤
 
  
 ### HOME 
-![SmartChat Banner](/1.jpg)
+![SmartChat Banner](/vihome%20.png)
 #### VI assistant 
-![SmartChat Banner](/2.jpg)
+![SmartChat Banner](/vi1.png)
 
-## 🚀 Features
+##  Features
 
-### 💬 Conversational Intelligence
+###  Conversational Intelligence
 - **Dynamic Greetings**: Responds with varied, friendly greetings to keep interactions fresh
 - **Smart Small Talk**: Engages users with interesting facts and conversation starters
 - **Thoughtful Questions**: Asks insightful questions to maintain engaging conversation
 - **Idle Check-ins**: Periodically checks in if a user hasn't interacted in a while
 
-### 🔍 Information Retrieval
+###  Information Retrieval
 - **Wikipedia Integration**: Answers factual "who is" and "what is" questions using Wikipedia's extensive knowledge base
 - **Web Search**: Opens search results for user queries when requested
 - **Time & Date**: Provides accurate time and date information on demand
@@ -57,7 +57,7 @@ Thanks for your support! ❤
 - **Platform Detection**: Automatically detects which music platform the user wants to use
 - **Humor**: Delivers jokes on request through pyjokes integration
 
-### 🌐 Web Navigation
+###  Web Navigation
 - **Quick Website Access**: Opens popular websites in new tabs including:
   - Social media (Facebook, Twitter, Instagram, LinkedIn)
   - Information (Google, Wikipedia, Stack Overflow, Quora)
@@ -65,7 +65,7 @@ Thanks for your support! ❤
   - Shopping (Amazon)
   - Utilities (GitHub, Weather, News)
 
-## 🛠️ Technology Stack
+##  Technology Stack
 
 - **Backend**: Django web framework
 - **Language**: Python 3.x
@@ -76,6 +76,7 @@ Thanks for your support! ❤
   - `difflib`: Fuzzy text matching for better command recognition
   - `webbrowser`: Website navigation
   - `datetime`: Time and date functions
+  - `google-generativeai` – AI-powered conversational chat (Gemini API)
 
 ## 📋 Installation
 
@@ -98,7 +99,7 @@ python manage.py migrate
 python manage.py runserver
 ```
 
-## 🔧 Usage
+##  Usage
 
 1. Navigate to `http://localhost:8000` in your web browser
 2. Type your request in the chat input field
@@ -112,7 +113,7 @@ python manage.py runserver
 "Tell me a joke"
 ```
 
-## 🧠 How It Works
+##  How It Works
 
 SmartChat processes user input through a command interpretation pipeline:
 
@@ -129,25 +130,17 @@ SmartChat processes user input through a command interpretation pipeline:
 | `/` | GET | Serves the home page |
 | `/process_command/` | POST | Processes user commands and returns responses |
 
-## 🛣️ Future Roadmap
+ 
 
-- Voice input and output capabilities
-- Persistent user preferences
-- Calendar integration for scheduling
-- Weather forecasting
-- Smart home device control
-- Multi-language support
-- Mobile app version
-
-## 📄 License
+##  License
 
 This project is licensed under the MIT License - see the LICENSE file for details.
 
-## 👥 Contributing
+##  Contributing
 
 Contributions are welcome! Please feel free to submit a Pull Request.
 
-## 🙏 Acknowledgements
+##  Acknowledgements
 
 - Django community for the robust web framework
 - Wikipedia API for knowledge access
