@@ -1,14 +1,19 @@
-<h1 align="center">🤖 VI ASSISTANT</h1>
+<h1 align="center">VI ASSISTANT</h1>
 
  
  ## VI ASSISTANT- Interactive Web Assistant
 
 
-This project is  Django-powered virtual assistant web application that provides users with an intuitive conversational interface to perform various tasks, access information, and engage in natural dialogue.  integrated web services, VI  offers a seamless experience for users seeking information or assistance through simple conversation.
-✅ No external APIs — built entirely using Python libraries like pywhatkit, wikipedia, pyjokes, and more.
+This project is  Django-powered virtual assistant web application that provides users with an 
+intuitive conversational interface to perform various tasks, access information, and engage in 
+natural dialogue.  integrated web services, VI  offers a seamless experience for users seeking 
+information or assistance through simple conversation.
+ No external APIs — built entirely using Python libraries like pywhatkit, wikipedia, pyjokes, and 
+ more.
 No API keys, no complex setup — just pure Python functionality under the hood.
 
-If you find this repository helpful or interesting, please consider giving it a star⭐ and Follow Me for cool Projects
+If you find this repository helpful or interesting, please consider giving it a star⭐ and Follow Me 
+for cool Projects
 
 ### [⭐ **Star this project**](https://github.com/sayyedrabeeh/artist)
 ### [👤 **Follow Me**](https://github.com/sayyedrabeeh)
@@ -24,9 +29,10 @@ If you find this repository helpful or interesting, please consider giving it a 
 
 ## How to Contribute
 
-If you want to contribute, feel free to fork the repository and submit a pull request. Also, don’t forget to star the repo!
+If you want to contribute, feel free to fork the repository and submit a pull request. Also, don’t 
+forget to star the repo!
 
-Thanks for your support! ❤
+Thanks for your support! 
 
  
 ### HOME 
@@ -151,8 +157,7 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 
 ⭐ **Star this repo if you find it useful!** ⭐
 
-<p align="center">Developed with ❤️ME for Poeples</p>
-
+ 
  
 <h3 align="center">Happy Coding </h3>
  
